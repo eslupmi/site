@@ -1,0 +1,16 @@
+baseURL: ""
+languageCode: en-us
+title: IMPulse
+theme: hugo-book
+publishDir: "../content"
+resourceDir: "../resources"
+# disqusShortname: "IMPulse"
+params:
+  BookTheme: 'dark' # dark theme chosen
+  # BookLogo: 'logo.png'
+  # BookSection: 'docs'
+  BookSearch: false # disable the search str
+markup:
+  goldmark:
+    renderer:
+      unsafe: true  #HTML-sup turned on in Hugo
