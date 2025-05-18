@@ -2,8 +2,8 @@ baseURL: ""
 languageCode: en-us
 title: IMPulse
 theme: hugo-book
-publishDir: "../content"
-resourceDir: "../resources"
+publishDir: "publish"
+resourceDir: "resources"
 # disqusShortname: "IMPulse"
 params:
   BookTheme: 'dark' # dark theme chosen
