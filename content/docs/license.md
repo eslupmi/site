@@ -1,6 +1,7 @@
 ---
-title: "License: GPL-3.0"
-weight: 3
+title: License ➚
+bookHref: "https://github.com/eslupmi/impulse/blob/develop/LICENSE.md"
+type: docs
+weight: 11
 ---
-
-GPL-3.0 license
+-
