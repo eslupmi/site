@@ -1,0 +1,12 @@
+name: "IMPulse"
+license: "MIT"
+licenselink: "https://github.com/yourname/impulse-hugo-theme/blob/main/LICENSE"
+description: "A modern, responsive Hugo theme for the IMPulse incident management platform"
+homepage: "https://github.com/yourname/impulse-hugo-theme"
+tags: ["landing-page", "responsive", "modern", "dark-theme"]
+features: ["responsive", "dark-mode", "modern-design"]
+min_version: "0.41.0"
+
+author:
+  name: "IMPulse Team"
+  homepage: "https://github.com/eslupmi/impulse" 

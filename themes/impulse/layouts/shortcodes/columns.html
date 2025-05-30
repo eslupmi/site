@@ -1,0 +1,8 @@
+{{- $content := .Inner | markdownify -}}
+{{- $content = replace $content "<p>&lt;---&gt;</p>" "" -}}
+{{- $content = replace $content "<p><---></p>" "" -}}
+{{- $content = replace $content "&lt;---&gt;" "" -}}
+{{- $content = replace $content "<--->" "" -}}
+<div class="columns">
+{{ $content | safeHTML }}
+</div> 

@@ -1,0 +1,11 @@
+{{- $relref := .Get "relref" -}}
+{{- $href := .Get "href" -}}
+{{- $class := .Get "class" | default "btn-primary" -}}
+
+{{- if $relref -}}
+<a href="{{ relref . $relref }}" class="btn {{ $class }}">{{ .Inner | markdownify }}</a>
+{{- else if $href -}}
+<a href="{{ $href }}" class="btn {{ $class }}" target="_blank">{{ .Inner | markdownify }}</a>
+{{- else -}}
+<button class="btn {{ $class }}">{{ .Inner | markdownify }}</button>
+{{- end -}} 

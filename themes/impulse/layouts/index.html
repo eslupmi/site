@@ -1,0 +1,230 @@
+{{ define "main" }}
+<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <a href="/" class="logo-link">
+                    <img src="/logo.png" alt="IMPulse Logo" class="logo-img">
+                    <h1 class="logo">IMPulse</h1>
+                </a>
+            </div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-right" id="mobile-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#quick-start" class="nav-link">Quick Start</a>
+                <a href="https://docs.impulse.bot" class="nav-link" target="_blank">Documentation</a>
+                <a href="{{ .Site.Params.github_url }}/discussions" class="nav-link" target="_blank">Discussions</a>
+                <a href="{{ .Site.Params.github_url }}" class="btn btn-outline" target="_blank">View on GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Content -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="content">
+                {{ .Content }}
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <h2 class="section-title">Why IMPulse? To fix this!</h2>
+        
+        <div class="comparison-grid">
+            <div class="problem-column">
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Alerts go to everyone — or no one</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Tired of bloated enterprise tools</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Not sure who's on call?</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Need reliable Slack/Telegram alerts</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Want control and customization</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Need setup today, not next sprint</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon problem-icon">✖</div>
+                    <div class="content">
+                        <h3>Can't trust black-box vendors</h3>
+                        <p class="label">Problem</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-column">
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>Smart routing → right person, right time, no spam</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>Lightweight, clean UI, no extra noise</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>Google Calendar sync shows everything at a glance</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>Stable, tested integrations (Slack, Telegram, Mattermost)</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>You own the code. Extend it as needed.</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>Deploy in minutes via Docker</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="icon solution-icon">✓</div>
+                    <div class="content">
+                        <h3>Fully open source, self-hosted, no data leaks</h3>
+                        <p class="label">IMPulse Solution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">Features and Integrations</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Slack, Telegram, Mattermost Integrations</h3>
+                <p>Stable, tested integrations — receive alerts where your team already communicates.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>On-Call Scheduling</h3>
+                <p>Set up flexible shifts and rotations right from your Google Calendar.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Familiar and flexible routing</h3>
+                <p>Route alerts to the right person at the right time — no spam, no chaos. Uses a routing model similar to Alertmanager, so it feels instantly familiar.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Customizable</h3>
+                <p>Customize incident message formats to fit your needs. Fork it, extend it, or contribute — your stack, your rules.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Fast Setup with Docker</h3>
+                <p>Deploy in minutes with minimal dependencies. Works out of the box.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Privacy by Design</h3>
+                <p>No tracking, no extra logging, no data leaks. Perfect for sensitive environments.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Open Source & Self-Hosted</h3>
+                <p>Full control of your infrastructure and data. No lock-in, no third-party backend.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Community Support</h3>
+                <p>Ask questions and share ideas on GitHub Discussions. We're here to help.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Docker Section -->
+    <section class="docker-section">
+        <h2 class="docker-title">All you need is Docker.</h2>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quick-start" class="quick-start">
+        <h2 class="section-title">Quick Start — Deploy in Minutes</h2>
+        <a href="{{ .Site.Params.github_url }}" class="btn btn-primary" target="_blank">Try it</a>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community">
+        <h2 class="section-title">We build IMPulse with engineers, for engineers — and we actually listen.</h2>
+        
+        <div class="community-cta">
+            <h3>Got a problem, feature idea, or integration request?</h3>
+            <a href="{{ .Site.Params.github_url }}/discussions" class="btn btn-primary" target="_blank">Go to discussions</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; IMPulse2025. All Rights Reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="{{ .Site.Params.github_url }}/blob/develop/LICENSE.md" class="footer-link" target="_blank">License</a>
+                <a href="{{ .Site.Params.github_url }}" class="footer-link" target="_blank">GitHub</a>
+                <a href="{{ .Site.Params.github_url }}/discussions" class="footer-link" target="_blank">Discussions</a>
+            </div>
+        </div>
+    </footer>
+</div>
+{{ end }}
+ 
