@@ -1,0 +1,8 @@
+<section id="quick-start" class="quick-start">
+    <h2 class="section-title">{{ .Get "title" | default "Quick Start — Deploy in Minutes" }}</h2>
+    {{ if .Get "button-url" }}
+        <a href="{{ .Get "button-url" }}" class="btn btn-primary" target="_blank">{{ .Get "button-text" | default "Try it" }}</a>
+    {{ else if .Page.Site.Params.github_url }}
+        <a href="{{ .Page.Site.Params.github_url }}?tab=readme-ov-file#quick-start" class="btn btn-primary" target="_blank">{{ .Get "button-text" | default "Try it" }}</a>
+    {{ end }}
+</section>

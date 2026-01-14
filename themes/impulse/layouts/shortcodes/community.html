@@ -1,0 +1,12 @@
+<section class="community">
+    <h2 class="section-title">{{ .Get "title" | default "We build IMPulse with engineers, for engineers — and we actually listen." }}</h2>
+    
+    <div class="community-cta">
+        <h3>{{ .Get "subtitle" | default "Got a problem, feature idea, or integration request?" }}</h3>
+        {{ if .Get "button-url" }}
+            <a href="{{ .Get "button-url" }}" class="btn btn-primary" target="_blank">{{ .Get "button-text" | default "Go to discussions" }}</a>
+        {{ else if .Page.Site.Params.github_url }}
+            <a href="{{ .Page.Site.Params.github_url }}/discussions" class="btn btn-primary" target="_blank">{{ .Get "button-text" | default "Go to discussions" }}</a>
+        {{ end }}
+    </div>
+</section>

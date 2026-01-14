@@ -1,7 +1,14 @@
 // Mobile menu toggle function
 function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.toggle('mobile-open');
+    const navCenter = document.querySelector('.nav-center');
+    const navRight = document.querySelector('.nav-right');
+    
+    if (navCenter) {
+        navCenter.classList.toggle('mobile-open');
+    }
+    if (navRight) {
+        navRight.classList.toggle('mobile-open');
+    }
 }
 
 // Close mobile menu when clicking on a link
@@ -26,9 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Close mobile menu after clicking a link
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu.classList.contains('mobile-open')) {
-                    mobileMenu.classList.remove('mobile-open');
+                const navCenter = document.querySelector('.nav-center');
+                const navRight = document.querySelector('.nav-right');
+                if (navCenter && navCenter.classList.contains('mobile-open')) {
+                    navCenter.classList.remove('mobile-open');
+                }
+                if (navRight && navRight.classList.contains('mobile-open')) {
+                    navRight.classList.remove('mobile-open');
                 }
             }
         });
@@ -41,10 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
+        // Get CSS variable value for header background
+        const headerBg = getComputedStyle(document.documentElement)
+            .getPropertyValue('--color-header-bg').trim();
+        
         if (scrollTop > 100) {
-            header.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+            // Use header-bg with higher opacity when scrolled
+            header.style.backgroundColor = headerBg;
         } else {
-            header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            // Use header-bg with backdrop-filter for initial state
+            header.style.backgroundColor = headerBg;
         }
         
         lastScrollTop = scrollTop;
@@ -76,19 +93,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        const mobileMenu = document.getElementById('mobile-menu');
+        const navCenter = document.querySelector('.nav-center');
+        const navRight = document.querySelector('.nav-right');
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         
-        if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-            mobileMenu.classList.remove('mobile-open');
+        if (navCenter && navRight && mobileToggle) {
+            if (!navCenter.contains(e.target) && !navRight.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navCenter.classList.remove('mobile-open');
+                navRight.classList.remove('mobile-open');
+            }
         }
     });
 
     // Handle window resize
     window.addEventListener('resize', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
+        const navCenter = document.querySelector('.nav-center');
+        const navRight = document.querySelector('.nav-right');
         if (window.innerWidth > 768) {
-            mobileMenu.classList.remove('mobile-open');
+            if (navCenter) navCenter.classList.remove('mobile-open');
+            if (navRight) navRight.classList.remove('mobile-open');
         }
     });
-}); 
+
+    // Load GitHub stars
+    loadGitHubStars();
+});
+
+// Function to load GitHub stars count
+function loadGitHubStars() {
+    const starsElement = document.getElementById('github-stars');
+    const starCountElement = starsElement?.querySelector('.star-count');
+    
+    if (!starCountElement) return;
+    
+    // GitHub repository info
+    const owner = 'eslupmi';
+    const repo = 'impulse';
+    
+    fetchGitHubStars(owner, repo, starCountElement);
+}
+
+function fetchGitHubStars(owner, repo, starCountElement) {
+    // Use GitHub API to get star count
+    fetch(`https://api.github.com/repos/${owner}/${repo}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch GitHub data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const starCount = data.stargazers_count || 0;
+            starCountElement.textContent = formatStarCount(starCount);
+        })
+        .catch(error => {
+            console.error('Error fetching GitHub stars:', error);
+            starCountElement.textContent = '';
+            // Hide the stars element if fetch fails
+            const starsElement = document.getElementById('github-stars');
+            if (starsElement) {
+                starsElement.style.display = 'none';
+            }
+        });
+}
+
+function formatStarCount(count) {
+    if (count >= 1000) {
+        return (count / 1000).toFixed(1) + 'k';
+    }
+    return count.toString();
+} 
