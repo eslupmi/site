@@ -53,9 +53,55 @@
             </div>
             <div class="footer-center">
                 <a href="{{ .Site.Params.github_url }}/blob/develop/LICENSE.md" class="footer-link" target="_blank">License</a>
+                <a href="#" class="footer-link" onclick="openPrivacyModal(); return false;">Privacy Policy</a>
+                <a href="mailto:support@impulse.bot" class="footer-link">support@impulse.bot</a>
             </div>
         </div>
     </footer>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacy-modal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closePrivacyModal()">&times;</span>
+        <h2>Privacy Policy</h2>
+        <div class="modal-body">
+            <p><strong>Last updated: October 21, 2025</strong></p>
+            
+            <p>We take your privacy seriously. This page explains what data we (the creators of IMPulse — an open-source incident management system) do and do not collect when you visit our website.</p>
+            
+            <h3>1. What we collect</h3>
+            <p>We use Google Analytics to understand how people use this site. This tool collects non-personal data, such as:</p>
+            <ul>
+                <li>Pages visited</li>
+                <li>Time spent on the site</li>
+                <li>Browser type and operating system</li>
+                <li>Referring site or source</li>
+                <li>Approximate geographic region (not precise location)</li>
+            </ul>
+            <p>This data is anonymous and used only in aggregate - we cannot and do not use it to identify individual visitors.</p>
+            
+            <h3>2. What we do not collect</h3>
+            <p>We do not:</p>
+            <ul>
+                <li>Collect names, email addresses, or any contact information</li>
+                <li>Use contact forms, comments, or account logins</li>
+                <li>Track users for advertising purposes</li>
+                <li>Sell or share any data with third parties</li>
+            </ul>
+            
+            <h3>3. Why we collect analytics data</h3>
+            <p>Analytics help us:</p>
+            <ul>
+                <li>Understand what pages are most useful</li>
+                <li>See how visitors find our tool</li>
+                <li>Improve the website over time</li>
+            </ul>
+            
+            <h3>4. Questions?</h3>
+            <p>If you have any concerns about your privacy or this policy, feel free to contact us at <a href="mailto:support@impulse.bot">support@impulse.bot</a>.</p>
+        </div>
+    </div>
 </div>
 {{ end }}
  

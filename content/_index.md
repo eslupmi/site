@@ -14,36 +14,75 @@ bookToC: False
 
 <h2 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 30px 0 20px;">Fast. Simple. Open-source.</h2>
 
-{{< features title="Features and Integrations" >}}
-{{< feature-card title="Slack, Telegram, Mattermost Integrations" >}}
-Stable, tested integrations — receive alerts where your team already communicates.
+## FAQ
+
+<p style="text-align: left; margin-left: 180px;">
+**- Why ChatOps?**
+<br/>
+- We believe that incident management should be where your team works and communicates — in your corporate messenger.
+</p>
+
+<p style="text-align: left; margin-left: 180px;">
+- Why IaC?
+<br/>
+- To have full IMPulse configuration as code...
+</p>
+
+
+
+{{< features title="Integrations" >}}
+
+{{< feature-card title="Several messengers support" >}}
+Full <span class="brand-color">Slack</span>, <span class="brand-color">Telegram</span>, <span class="brand-color">Mattermost</span> Integration
 {{< /feature-card >}}
 
-{{< feature-card title="On-Call Scheduling" >}}
-Set up flexible shifts and rotations right from your Google Calendar.
+{{< feature-card title="Task Management support" >}}
+Create <span class="brand-color">Jira</span> tasks with one click
 {{< /feature-card >}}
 
-{{< feature-card title="Familiar and flexible routing" >}}
-Route alerts to the right person at the right time — no spam, no chaos. Uses a routing model similar to Alertmanager, so it feels instantly familiar.
+{{< feature-card title="Unlimited oncall schedules" >}}
+Set up flexible shifts and rotations right from your <span class="brand-color">Google Calendar</span>.
 {{< /feature-card >}}
 
-{{< feature-card title="Customizable" >}}
-Customize incident message formats to fit your needs. Fork it, extend it, or contribute — your stack, your rules.
+{{< feature-card title="Any external integrations" >}}
+Powerfull IMPulse <span class="brand-color">Webhooks</span> to integrate with any system
+{{< /feature-card >}}
+{{< /features >}}
+
+{{< features title="Features" >}}
+
+{{< feature-card title="Incidents Deduplication" >}}
+Incidents in IMPulse have <span class="brand-color">lifecycle</span>, which prevents noise
 {{< /feature-card >}}
 
-{{< feature-card title="Fast Setup with Docker" >}}
-Deploy in minutes with minimal dependencies. Works out of the box.
+{{< feature-card title="Snoozed Incidents" >}}
+<span class="brand-color">Freeze</span> button to snooze incidents
+{{< /feature-card >}}
+
+{{< feature-card title="Parent/Child Incident Suppression" >}}
+<span class="brand-color">Suppress</span> child incidents when a parent incident is active
+{{< /feature-card >}}
+{{< /features >}}
+
+{{< features title="Free software" >}}
+
+{{< feature-card title="Unlimited escallation policies" >}}
+Create as many <span class="brand-color">escallation policies</span> as you need
+{{< /feature-card >}}
+
+{{< feature-card title="Full customization" >}}
+Powerfull <span class="brand-color">Jinja2 templates</span> to build incidents you want.
+{{< /feature-card >}}
+
+{{< feature-card title="Free, Open Source, Self-hosted" >}}
+Fork it, extend it, or contribute — your stack, your rules. <span class="brand-color">Full control</span> of your infrastructure and data.
 {{< /feature-card >}}
 
 {{< feature-card title="Privacy by Design" >}}
-No tracking, no extra logging, no data leaks. Perfect for sensitive environments.
-{{< /feature-card >}}
-
-{{< feature-card title="Open Source & Self-Hosted" >}}
-Full control of your infrastructure and data. No lock-in, no third-party backend.
+No tracking, no data leaks. Perfect for <span class="brand-color">sensitive</span> environments.
 {{< /feature-card >}}
 
 {{< feature-card title="Community Support" >}}
-Ask questions and share ideas on GitHub Discussions. We're here to help.
+Ask questions and share ideas on <span class="brand-color">GitHub Discussions</span>. We're here to help.
 {{< /feature-card >}}
 {{< /features >}}

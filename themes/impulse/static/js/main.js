@@ -126,6 +126,11 @@ function loadGitHubStars() {
     
     if (!starCountElement) return;
     
+    // Ensure the element is visible
+    if (starsElement) {
+        starsElement.style.display = 'inline-flex';
+    }
+    
     // GitHub repository info
     const owner = 'eslupmi';
     const repo = 'impulse';
@@ -148,12 +153,8 @@ function fetchGitHubStars(owner, repo, starCountElement) {
         })
         .catch(error => {
             console.error('Error fetching GitHub stars:', error);
+            // Keep the element visible, just show empty or default value
             starCountElement.textContent = '';
-            // Hide the stars element if fetch fails
-            const starsElement = document.getElementById('github-stars');
-            if (starsElement) {
-                starsElement.style.display = 'none';
-            }
         });
 }
 
@@ -162,4 +163,40 @@ function formatStarCount(count) {
         return (count / 1000).toFixed(1) + 'k';
     }
     return count.toString();
-} 
+}
+
+// Privacy Policy Modal functions
+function openPrivacyModal() {
+    const modal = document.getElementById('privacy-modal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closePrivacyModal() {
+    const modal = document.getElementById('privacy-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+// Close modal when clicking outside of it
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('privacy-modal');
+    if (modal) {
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closePrivacyModal();
+            }
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                closePrivacyModal();
+            }
+        });
+    }
+}); 

@@ -43,6 +43,10 @@
     box-sizing: border-box;
 }
 
+.brand-color {
+    color: var(--color-accent);
+}
+
 body {
     font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--color-bg-primary);
@@ -299,6 +303,11 @@ body {
     padding: 120px 0 80px;
     text-align: center;
     background-color: var(--color-bg-primary);
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgb(255, 255, 255) 10%, 
+        rgb(255, 255, 255) 90%, 
+        rgba(255, 255, 255, 0) 100%);
 }
 
 .hero .content {
@@ -321,9 +330,10 @@ body {
 
 .hero .content h2 {
     color: var(--color-text-primary);
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 600;
     margin: 30px 0 20px;
+    text-decoration: underline;
 }
 
 .hero-title {
@@ -345,11 +355,7 @@ body {
     margin: 0 auto;
     padding: 40px 20px;
     border-radius: 8px;
-    background: linear-gradient(to right, 
-        rgba(255, 255, 255, 1) 0%, 
-        rgba(100, 100, 100, 0.03) 5%, 
-        rgba(100, 100, 100, 0.03) 95%, 
-        rgba(255, 255, 255, 1) 100%);
+    background-color: rgba(100, 100, 100, 0.03);
 }
 
 .content h1 {
@@ -506,8 +512,7 @@ body {
 
 /* Features Section */
 .features {
-    padding: 80px 0;
-    background-color: var(--color-bg-primary);
+    padding: 20px 0;
 }
 
 .features-grid {
@@ -518,7 +523,7 @@ body {
 }
 
 .feature-card {
-    padding: 30px;
+    padding: 10px;
     background-color: var(--color-overlay-white-02);
     border-radius: 12px;
     border: 1px solid var(--color-overlay-white-05);
@@ -601,21 +606,20 @@ body {
 
 .footer-left {
     flex: 1;
+    text-align: left;
 }
 
 .footer-left p {
-    color: var(--color-text-tertiary);
+    color: #808080;
     font-size: 14px;
     margin: 0;
 }
 
 .footer-center {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    flex: 1;
     gap: 20px;
 }
 
@@ -970,7 +974,7 @@ body {
     }
     
     .content h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .content th,
@@ -1001,4 +1005,109 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-scrollbar-thumb-hover);
+}
+
+/* Privacy Policy Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--color-bg-primary);
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid var(--color-overlay-white-10);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    color: var(--color-text-secondary);
+    float: right;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-text-primary);
+}
+
+.modal-content h2 {
+    color: var(--color-text-primary);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.modal-body {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.modal-body h3 {
+    color: var(--color-text-primary);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.modal-body p {
+    margin-bottom: 15px;
+}
+
+.modal-body ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+}
+
+.modal-body a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.modal-body a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 30px 20px;
+        max-height: 85vh;
+    }
+    
+    .modal-content h2 {
+        font-size: 24px;
+    }
+    
+    .modal-body h3 {
+        font-size: 18px;
+    }
 } 
