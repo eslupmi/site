@@ -135,10 +135,26 @@ function loadGitHubStars() {
     const owner = 'eslupmi';
     const repo = 'impulse';
     
-    fetchGitHubStars(owner, repo, starCountElement);
+    // Cache key for localStorage
+    const cacheKey = `github-stars-${owner}-${repo}`;
+    const cacheTimeKey = `github-stars-time-${owner}-${repo}`;
+    const cacheDuration = 60 * 60 * 1000; // 1 hour in milliseconds
+    
+    // Check cache
+    const cachedTime = localStorage.getItem(cacheTimeKey);
+    const cachedCount = localStorage.getItem(cacheKey);
+    const now = Date.now();
+    
+    if (cachedTime && cachedCount && (now - parseInt(cachedTime)) < cacheDuration) {
+        // Use cached value
+        starCountElement.textContent = formatStarCount(parseInt(cachedCount));
+    } else {
+        // Fetch new value
+        fetchGitHubStars(owner, repo, starCountElement, cacheKey, cacheTimeKey);
+    }
 }
 
-function fetchGitHubStars(owner, repo, starCountElement) {
+function fetchGitHubStars(owner, repo, starCountElement, cacheKey, cacheTimeKey) {
     // Use GitHub API to get star count
     fetch(`https://api.github.com/repos/${owner}/${repo}`)
         .then(response => {
@@ -150,9 +166,23 @@ function fetchGitHubStars(owner, repo, starCountElement) {
         .then(data => {
             const starCount = data.stargazers_count || 0;
             starCountElement.textContent = formatStarCount(starCount);
+            
+            // Cache the result
+            if (cacheKey && cacheTimeKey) {
+                localStorage.setItem(cacheKey, starCount.toString());
+                localStorage.setItem(cacheTimeKey, Date.now().toString());
+            }
         })
         .catch(error => {
             console.error('Error fetching GitHub stars:', error);
+            // Try to use cached value if available, even if expired
+            if (cacheKey) {
+                const cachedCount = localStorage.getItem(cacheKey);
+                if (cachedCount) {
+                    starCountElement.textContent = formatStarCount(parseInt(cachedCount));
+                    return;
+                }
+            }
             // Keep the element visible, just show empty or default value
             starCountElement.textContent = '';
         });

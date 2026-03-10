@@ -1,4 +1,29 @@
-<div class="feature-card">
-    <h3>{{ .Get "title" }}</h3>
-    <p>{{ .Inner | markdownify }}</p>
+{{ if .Get "image" }}
+<div class="feature-card-with-image-container">
+    <div class="feature-card feature-card-with-image">
+        <div class="feature-content-wrapper">
+            <div class="feature-content">
+                <h3>{{ .Get "title" }}</h3>
+                <p>{{ .Inner | markdownify }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="feature-image-wrapper">
+        <div class="feature-image">
+            <img src="{{ .Get "image" }}" alt="{{ .Get "title" }}" />
+        </div>
+        {{ if .Get "image-caption" }}
+        <p class="feature-image-caption">{{ .Get "image-caption" }}</p>
+        {{ end }}
+    </div>
 </div>
+{{ else }}
+<div class="feature-card">
+    <div class="feature-content-wrapper">
+        <div class="feature-content">
+            <h3>{{ .Get "title" }}</h3>
+            <p>{{ .Inner | markdownify }}</p>
+        </div>
+    </div>
+</div>
+{{ end }}
