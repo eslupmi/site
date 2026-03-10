@@ -1,2 +1,4 @@
 publish
 resources
+**/*.png
+**/*.xcf
