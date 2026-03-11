@@ -120,6 +120,7 @@ bookToC: False
 ## Features
 
 <div class="tiles-grid">
+  <div class="tile tile-w1 tile-empty"></div>
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Multiple messengers support</h3>
@@ -131,7 +132,7 @@ bookToC: False
       <div class="tile-feature-icon tile-feature-icon-telegram"></div>
     </div>
   </div>
-  <div class="tile tile-feature tile-w2">
+  <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Alert sources</h3>
       <p class="tile-feature-description">Alertmanager and Grafana support</p>
