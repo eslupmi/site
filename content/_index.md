@@ -70,7 +70,7 @@ bookToC: False
           <strong>Easy migration from<br/>Alertmanager</strong>
         </div>
         <div class="why-impulse-content">
-          <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibition_rules" class="brand-color">inhibition_rules</a> configuration</p>
+          <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibition_rules" class="brand-color">inhibition rules</a> configuration</p>
         </div>
       </div>
       <div class="why-impulse-item">
@@ -120,16 +120,15 @@ bookToC: False
 ## Features
 
 <div class="tiles-grid">
-  <!-- row 1: 2+2+1 = 5 -->
-  <div class="tile tile-main tile-w2">
-    <div class="tile-main-text">
-      <h3 class="tile-main-title">Multiple messengers support</h3>
-      <p class="tile-main-description">Slack, Mattermost, Telegram</p>
+  <div class="tile tile-feature tile-w2">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">Multiple messengers support</h3>
+      <p class="tile-feature-description">Slack, Mattermost, Telegram</p>
     </div>
-    <div class="tile-main-icons">
-      <div class="tile-main-icon tile-main-icon-slack"></div>
-      <div class="tile-main-icon tile-main-icon-mattermost"></div>
-      <div class="tile-main-icon tile-main-icon-telegram"></div>
+    <div class="tile-feature-icons">
+      <div class="tile-feature-icon tile-feature-icon-slack"></div>
+      <div class="tile-feature-icon tile-feature-icon-mattermost"></div>
+      <div class="tile-feature-icon tile-feature-icon-telegram"></div>
     </div>
   </div>
   <div class="tile tile-feature tile-w2">
@@ -146,7 +145,6 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-  <!-- row 2: 2+1+2 = 5 -->
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">No incident chaos</h3>
@@ -160,9 +158,8 @@ bookToC: False
       <p class="tile-feature-description">Simple but highly customizable UI with data highlight</p>
     </div>
   </div>
-  <div class="tile tile-image tile-w2"></div>
-  <!-- row 3: 1+2+1+1 = 5 -->
-  <div class="tile tile-image tile-w1"></div>
+  <div class="tile tile-feature tile-w2"></div>
+  <div class="tile tile-feature tile-w1"></div>
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Calendar integration</h3>
@@ -183,7 +180,6 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-  <!-- row 4: 2+1+1+1 = 5 -->
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">External integrations</h3>
@@ -204,14 +200,13 @@ bookToC: False
       <p class="tile-feature-description"><a href="https://docs.impulse.bot/features/snoozed-incidents/" class="brand-color">Freeze</a> incidents to handle them later</p>
     </div>
   </div>
-  <div class="tile tile-image tile-w1"></div>
-  <!-- row 5: 2+3 = 5 -->
+  <div class="tile tile-w1"></div>
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">High customization</h3>
       <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/configuration/templates/" class="brand-color">Jinja2 templates</a> to customize incident messages</p>
     </div>
   </div>
-  <div class="tile tile-image tile-w3"></div>
+  <div class="tile tile-w3"></div>
 </div>
 
