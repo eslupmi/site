@@ -301,7 +301,7 @@ body {
     margin-top: 16px;
     text-align: right;
     color: #000000;
-    font-size: 14px;
+    font-size: 16px;
     padding-right: 15%;
 }
 
@@ -343,7 +343,6 @@ body {
 .content h3 {
     font-size: 24px;
     font-weight: 500;
-    margin: 30px 0 15px;
     color: var(--color-text-on-light-text);
 }
 
@@ -496,7 +495,7 @@ body {
 }
 
 .tile-feature {
-    padding: 32px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -515,10 +514,6 @@ body {
     margin-bottom: 0;
 }
 
-.tile-feature-text {
-    margin-top: auto;
-}
-
 .tile-feature-title {
     font-size: 20px;
     font-weight: 600;
@@ -528,7 +523,7 @@ body {
 }
 
 .tile-feature-description {
-    font-size: 14px;
+    font-size: 16px;
     color: #000000;
     text-align: left;
     margin: 0;

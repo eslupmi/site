@@ -121,7 +121,16 @@ bookToC: False
 
 <div class="tiles-grid">
   <div class="tile tile-w1 tile-empty"></div>
-  <div class="tile tile-feature tile-w2">
+
+  <div class="tile tile-feature tile-w1">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">Alert sources</h3>
+      <p class="tile-feature-description">Alertmanager and Grafana support</p>
+    </div>
+    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
+  </div>
+
+  <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Multiple messengers support</h3>
       <p class="tile-feature-description">Slack, Mattermost, Telegram</p>
@@ -132,13 +141,28 @@ bookToC: False
       <div class="tile-feature-icon tile-feature-icon-telegram"></div>
     </div>
   </div>
+
+  <div class="tile tile-w1 tile-empty"></div>
+
+
+
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Alert sources</h3>
-      <p class="tile-feature-description">Alertmanager and Grafana support</p>
+      <h3 class="tile-feature-title">No incident chaos</h3>
+      <p class="tile-feature-description">Incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
+
+  <div class="tile tile-feature tile-w3">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">UI</h3>
+      <p class="tile-feature-description">Simple but highly customizable UI with data highlight</p>
+    </div>
+  </div>
+
+
+
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Inhibition rules</h3>
@@ -146,19 +170,7 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-  <div class="tile tile-feature tile-w2">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">No incident chaos</h3>
-      <p class="tile-feature-description">Incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-    </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
-  </div>
-  <div class="tile tile-feature tile-w1">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">UI</h3>
-      <p class="tile-feature-description">Simple but highly customizable UI with data highlight</p>
-    </div>
-  </div>
+
   <div class="tile tile-feature tile-w2"></div>
   <div class="tile tile-feature tile-w1"></div>
   <div class="tile tile-feature tile-w2">
