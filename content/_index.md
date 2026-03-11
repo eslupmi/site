@@ -111,7 +111,3 @@ bookToC: False
     </div>
   </div>
 </div>
-
-## Why IMPulse?
-
-{{< why-impulse >}}

@@ -613,8 +613,8 @@ body {
 .why-impulse-icon {
     grid-column: 1;
     grid-row: 1;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -630,8 +630,8 @@ body {
 }
 
 .why-impulse-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     stroke: currentColor;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1055,24 +1055,93 @@ body {
 }
 
 .footer {
-    padding: 40px 0;
-    background-color: var(--color-bg-primary);
-    background: linear-gradient(to right, 
-        var(--color-overlay-white-transparent) 0%, 
-        var(--color-bg-primary) 10%, 
-        var(--color-bg-primary) 90%, 
-        var(--color-overlay-white-transparent) 100%);
+    padding: 60px 0 40px;
+    background-color: var(--color-header-bg);
+    backdrop-filter: blur(10px);
     border-top: 1px solid var(--color-overlay-white-10);
     position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.footer-why-impulse {
+    max-width: 1900px;
+    margin: 0 auto 50px;
+    padding: 0 40px;
+}
+
+.footer .why-impulse-section {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    width: 100%;
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.footer .why-impulse-list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.footer .why-impulse-item {
+    aspect-ratio: 1 / 0.5;
+    padding: 6px;
+    min-width: 0;
+    border-radius: 0;
+    border: 1px solid var(--color-overlay-white-30);
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer .why-impulse-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+}
+
+.footer .why-impulse-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.footer .why-impulse-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.footer .why-impulse-item strong {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.footer .why-impulse-item p {
+    font-size: 14px;
+    padding-top: 0;
+    line-height: 1.4;
+    margin-top: auto;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 750px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
     position: relative;
 }
 
@@ -1230,6 +1299,15 @@ body {
     .why-impulse-icon svg {
         width: 24px;
         height: 24px;
+    }
+    
+    .footer .why-impulse-list {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+    }
+    
+    .footer-why-impulse {
+        padding: 0 20px;
     }
 }
 
@@ -1458,6 +1536,21 @@ body {
         font-size: 20px;
         margin-bottom: 25px;
         padding: 0 15px;
+    }
+    
+    .footer-why-impulse {
+        padding: 0 15px;
+        margin-bottom: 40px;
+    }
+    
+    .footer .why-impulse-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+    
+    .footer .why-impulse-item {
+        padding: 6px;
+        aspect-ratio: 1 / 0.65;
     }
     
     .footer-content {
@@ -1730,6 +1823,40 @@ body {
     .content td {
         padding: 8px 10px;
         font-size: 12px;
+    }
+    
+    .footer-why-impulse {
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+    
+    .footer .why-impulse-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    
+    .footer .why-impulse-item {
+        padding: 5px;
+        aspect-ratio: 1 / 0.7;
+    }
+    
+    .footer .why-impulse-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .footer .why-impulse-icon svg {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .footer .why-impulse-item strong {
+        font-size: 11px;
+    }
+    
+    .footer .why-impulse-item p {
+        font-size: 9px;
+        padding-top: 20px;
     }
     
     .why-impulse-section {

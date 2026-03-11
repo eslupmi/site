@@ -2,3 +2,4 @@ publish
 resources
 **/*.png
 **/*.xcf
+**/*.excalidraw.svg
