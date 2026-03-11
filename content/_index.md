@@ -120,6 +120,7 @@ bookToC: False
 ## Features
 
 <div class="tiles-grid">
+  <!-- 1 row -->
   <div class="tile tile-w1 tile-empty"></div>
 
   <div class="tile tile-feature tile-w1">
@@ -145,7 +146,7 @@ bookToC: False
   <div class="tile tile-w1 tile-empty"></div>
 
 
-
+  <!-- 2 row -->
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">No incident chaos</h3>
@@ -163,6 +164,7 @@ bookToC: False
 
 
 
+  <!-- 3 row -->
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Inhibition rules</h3>
@@ -171,14 +173,6 @@ bookToC: False
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 
-  <div class="tile tile-feature tile-w2"></div>
-  <div class="tile tile-feature tile-w1"></div>
-  <div class="tile tile-feature tile-w2">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Calendar integration</h3>
-      <p class="tile-feature-description">Modify scheduling rotations right from your <a href="https://docs.impulse.bot/configuration/oncall/#google-calendar" class="brand-color">Google Calendar</a></p>
-    </div>
-  </div>
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Unlimited escalation policies</h3>
@@ -186,6 +180,7 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
+  
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Task management integration</h3>
@@ -193,13 +188,14 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-  <div class="tile tile-feature tile-w2">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">External integrations</h3>
-      <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a> to integrate with any system</p>
-    </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
-  </div>
+
+  <div class="tile tile-w1 tile-empty"></div>
+
+
+
+  <!-- 4 row -->
+  <div class="tile tile-w1 tile-empty"></div>
+
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Multiple instances</h3>
@@ -207,19 +203,39 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-  <div class="tile tile-feature tile-w1">
+
+  <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Snoozed incidents</h3>
       <p class="tile-feature-description"><a href="https://docs.impulse.bot/features/snoozed-incidents/" class="brand-color">Freeze</a> incidents to handle them later</p>
     </div>
   </div>
-  <div class="tile tile-w1"></div>
+
+
+
+  <!-- 5 row -->
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">High customization</h3>
       <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/configuration/templates/" class="brand-color">Jinja2 templates</a> to customize incident messages</p>
     </div>
   </div>
-  <div class="tile tile-w3"></div>
+
+  <div class="tile tile-feature tile-w1">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">External integrations</h3>
+      <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a> to integrate with any system</p>
+    </div>
+    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
+  </div>
+
+  <div class="tile tile-w1 tile-empty"></div>
+
+  <div class="tile tile-feature tile-w2">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">Calendar integration</h3>
+      <p class="tile-feature-description">Modify scheduling rotations right from your <a href="https://docs.impulse.bot/configuration/oncall/#google-calendar" class="brand-color">Google Calendar</a></p>
+    </div>
+  </div>
 </div>
 
