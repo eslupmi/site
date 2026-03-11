@@ -440,9 +440,6 @@ body {
     aspect-ratio: 1 / 0.4;
     color: var(--color-overlay-white-90);
     line-height: 1.7;
-    background: linear-gradient(135deg, 
-        var(--color-bg-dark-95) 0%, 
-        var(--color-bg-dark-98) 100%);
     border-radius: 16px;
     border: 1px solid var(--color-overlay-white-10);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -453,9 +450,6 @@ body {
 }
 
 .why-impulse-item:hover {
-    background: linear-gradient(135deg, 
-        var(--color-bg-dark-100) 0%, 
-        var(--color-bg-dark-95) 100%);
     transform: translateY(-6px) scale(1.02);
     border-color: var(--color-accent-50);
     box-shadow: 0 12px 32px var(--color-accent-20),
@@ -470,9 +464,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, 
-        var(--color-accent-20) 0%, 
-        var(--color-accent-15) 100%);
     border-radius: 12px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: absolute;
@@ -489,9 +480,6 @@ body {
 }
 
 .why-impulse-item:hover .why-impulse-icon {
-    background: linear-gradient(135deg, 
-        var(--color-accent-30) 0%, 
-        var(--color-accent-25) 100%);
     transform: scale(1.1) rotate(5deg);
     color: var(--color-accent);
 }
@@ -902,8 +890,12 @@ body {
     margin: 0 auto 50px;
     padding: 0 40px;
     overflow-x: auto;
-    scrollbar-color: #808080 var(--color-header-bg);
+    scrollbar-color: transparent var(--color-header-bg);
     scrollbar-width: thin;
+}
+
+.footer-why-impulse:hover {
+    scrollbar-color: #808080 var(--color-header-bg);
 }
 
 .footer-why-impulse::-webkit-scrollbar {
@@ -915,11 +907,15 @@ body {
 }
 
 .footer-why-impulse::-webkit-scrollbar-thumb {
-    background: #808080;
+    background: transparent;
     border-radius: 4px;
 }
 
-.footer-why-impulse::-webkit-scrollbar-thumb:hover {
+.footer-why-impulse:hover::-webkit-scrollbar-thumb {
+    background: #808080;
+}
+
+.footer-why-impulse:hover::-webkit-scrollbar-thumb:hover {
     background: #999999;
 }
 
@@ -974,9 +970,6 @@ body {
 }
 
 .footer .why-impulse-item:hover .why-impulse-icon {
-    background: linear-gradient(135deg, 
-        var(--color-accent-20) 0%, 
-        var(--color-accent-15) 100%);
     transform: none;
     color: var(--color-overlay-white-90);
 }
