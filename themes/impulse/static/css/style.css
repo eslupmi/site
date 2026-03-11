@@ -11,8 +11,8 @@
     --color-accent: #38ade6;
     --color-error: #ff4757;
     --color-success: #2ed573;
-    --color-scrollbar-thumb: #333333;
-    --color-scrollbar-thumb-hover: #555555;
+    --color-scrollbar-thumb: #696969;
+    --color-scrollbar-thumb-hover: #696969;
     --color-overlay-dark-95: rgba(10, 10, 10, 0.95);
     --color-overlay-dark-98: rgba(10, 10, 10, 0.98);
     --color-overlay-white-02: rgba(255, 255, 255, 0.02);
@@ -379,14 +379,45 @@ body {
     margin-top: 100px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    padding: 20px 0;
+    padding: 30px 0 22px 0;
     background: var(--color-header-bg);
-    overflow-x: overlay;
-    scrollbar-width: none;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }
 
 .why-impulse-fullwidth::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+}
+
+.why-impulse-fullwidth::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.why-impulse-fullwidth::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.why-impulse-fullwidth:hover,
+.why-impulse-fullwidth:has(.why-impulse-section:hover),
+.why-impulse-fullwidth:has(.why-impulse-list:hover),
+.why-impulse-fullwidth:has(.why-impulse-item:hover) {
+    scrollbar-color: var(--color-scrollbar-thumb) transparent;
+}
+
+.why-impulse-fullwidth:hover::-webkit-scrollbar-thumb,
+.why-impulse-fullwidth:has(.why-impulse-section:hover)::-webkit-scrollbar-thumb,
+.why-impulse-fullwidth:has(.why-impulse-list:hover)::-webkit-scrollbar-thumb,
+.why-impulse-fullwidth:has(.why-impulse-item:hover)::-webkit-scrollbar-thumb {
+    background: var(--color-accent) transparent;
+}
+
+.why-impulse-fullwidth:hover::-webkit-scrollbar-thumb:hover,
+.why-impulse-fullwidth:has(.why-impulse-section:hover)::-webkit-scrollbar-thumb:hover,
+.why-impulse-fullwidth:has(.why-impulse-list:hover)::-webkit-scrollbar-thumb:hover,
+.why-impulse-fullwidth:has(.why-impulse-item:hover)::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent) transparent;
 }
 
 .why-impulse-section {
@@ -414,7 +445,7 @@ body {
 
 .why-impulse-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
 }
@@ -425,7 +456,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-overlay-white-90);
+    color: var(--color-accent);
     flex-shrink: 0;
 }
 
