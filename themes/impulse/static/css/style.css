@@ -80,10 +80,13 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
+    max-width: 100%;
     background-color: var(--color-header-bg);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--color-overlay-white-10);
+    box-sizing: border-box;
 }
 
 .nav {
@@ -102,6 +105,8 @@ body {
     gap: 12px;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .logo-link:hover {
@@ -278,13 +283,17 @@ body {
     margin-bottom: 32px;
     color: var(--color-text-on-light-text);
     text-align: left;
-    padding-left: 175px;
+    padding-left: 105px;
+    max-width: 60%;
 }
 
 .hero-preview {
     margin-top: 48px;
     text-align: center;
     position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-preview-img {
@@ -754,26 +763,41 @@ body {
 @media (max-width: 768px) {
     .header {
         padding: 12px 0;
+        overflow: visible;
     }
     
     .nav {
         padding: 0 15px;
         grid-template-columns: 1fr auto;
         gap: 10px;
+        max-width: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+    
+    .nav-left {
+        min-width: 0;
+        overflow: hidden;
+    }
+    
+    .mobile-menu-toggle {
+        flex-shrink: 0;
     }
     
     .nav-center,
     .nav-right {
         display: none;
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--color-overlay-dark-98);
+        top: calc(100% + 22px);
+        right: 10px;
+        width: 55%;
+        max-width: 55%;
+        background-color: var(--color-header-bg);
         flex-direction: column;
         gap: 0;
         padding: 20px;
         border-top: 1px solid var(--color-overlay-white-10);
+        box-sizing: border-box;
     }
     
     .nav-center.mobile-open {
@@ -785,17 +809,21 @@ body {
     }
     
     .nav-center .nav-link {
-        padding: 15px 0;
+        padding: 10px 5px 10px 0;
         width: 100%;
-        text-align: center;
+        text-align: right;
+        border-bottom: 1px solid var(--color-overlay-white-05);
+    }
+    
+    .nav-center .nav-link:last-child {
         border-bottom: 1px solid var(--color-overlay-white-05);
     }
     
     .nav-right .btn {
-        padding: 15px 0;
+        padding: 10px 20px 10px 0;
         width: 100%;
-        text-align: center;
-        margin-top: 10px;
+        text-align: right;
+        margin-top: 0;
     }
     
     .github-star-btn {
@@ -821,10 +849,14 @@ body {
     
     .logo-img {
         height: 28px;
+        flex-shrink: 0;
     }
     
     .logo {
         font-size: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .hero {
@@ -841,10 +873,18 @@ body {
     
     .hero-description {
         font-size: 17px;
+        padding-left: 0;
+        text-align: left;
+        max-width: 90%;
+    }
+    
+    .hero-intro {
+        text-align: center;
     }
     
     .hero-preview {
         margin-top: 32px;
+        width: 95%;
     }
     
     .hero-preview-text {
@@ -860,15 +900,29 @@ body {
 
     .tiles-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+        grid-auto-rows: auto;
         gap: 20px;
         margin-top: 40px;
         padding: 0 15px;
-        align-items: stretch;
+        align-items: start;
     }
 
-    .tile-w1, .tile-w2 {
+    .tile-w1 {
         grid-column: span 1;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        min-height: 0;
+    }
+    
+    .tile-w2 {
+        grid-column: span 2;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        min-height: 0;
+    }
+    
+    .tile-w1.tile {
+        height: auto;
     }
     
     .tile-main {
@@ -877,7 +931,17 @@ body {
     
     .tile-feature {
         padding: 24px;
-        height: 100%;
+        height: auto;
+    }
+    
+    .tile-feature-with-image {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .tile-feature-image {
+        width: 100%;
+        flex: 1 1 auto;
     }
     
     .tile-feature-icon .tile-circle {
@@ -887,10 +951,19 @@ body {
     
     .tile-feature-title {
         font-size: 18px;
+        line-height: 1.2;
     }
     
     .tile-feature-description {
         font-size: 13px;
+    }
+    
+    .footer {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        left: 0;
+        right: 0;
     }
     
     .footer-content {
@@ -924,9 +997,14 @@ body {
     }
     
     
+    .why-impulse-fullwidth {
+        margin-top: 60px;
+        padding: 20px 0;
+    }
+    
     .why-impulse-section {
-        margin: 40px 0;
-        padding: 30px 0;
+        margin: 0;
+        padding: 0;
     }
     
     .why-impulse-list {
@@ -935,7 +1013,7 @@ body {
     
     .why-impulse-item {
         min-width: 0;
-        width: 100%;
+        width: 282px;
         padding: 20px;
     }
     
@@ -970,147 +1048,5 @@ body {
     
     .modal-body h3 {
         font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .hero {
-        padding: 90px 0 50px;
-    }
-    
-    .logo-img {
-        height: 24px;
-    }
-    
-    .logo {
-        font-size: 18px;
-    }
-    
-    .hero-intro {
-        padding: 0 10px;
-    }
-    
-    .hero-intro h1 {
-        font-size: 28px;
-        line-height: 1.3;
-        margin-bottom: 16px;
-    }
-    
-    .hero-description {
-        font-size: 16px;
-        margin-bottom: 24px;
-    }
-    
-    .hero-preview {
-        margin-top: 24px;
-    }
-    
-    .hero-preview-img {
-        background: transparent;
-    }
-    
-    .hero-preview-text {
-        padding-right: 5%;
-        font-size: 12px;
-        text-align: center;
-    }
-    
-    .section-title {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    .tiles-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-        margin-top: 30px;
-        align-items: stretch;
-    }
-
-    .tile-w1, .tile-w2 {
-        grid-column: span 1;
-    }
-    
-    .btn {
-        font-size: 13px;
-    }
-    
-    .github-stars svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .star-count {
-        font-size: 14px;
-    }
-    
-    .content h1 {
-        font-size: 28px;
-    }
-    
-    .content h2 {
-        font-size: 28px;
-    }
-    
-    
-    
-    .why-impulse-section {
-        margin: 30px 0;
-        padding: 20px 0;
-    }
-    
-    .why-impulse-list {
-        padding: 0 10px;
-    }
-    
-    .why-impulse-item {
-        min-width: 0;
-        width: 100%;
-        padding: 18px;
-    }
-    
-    .why-impulse-icon {
-        width: 48px;
-        height: 48px;
-    }
-    
-    .why-impulse-icon svg {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .why-impulse-item strong {
-        font-size: 16px;
-    }
-    
-    .why-impulse-item p {
-        font-size: 14px;
-    }
-    
-    .tile-main {
-        grid-row: auto;
-    }
-    
-    .tile-feature {
-        padding: 20px;
-        height: 100%;
-    }
-    
-    .tile-feature-icon .tile-circle {
-        width: 48px;
-        height: 48px;
-    }
-    
-    .tile-feature-title {
-        font-size: 16px;
-    }
-    
-    .tile-feature-description {
-        font-size: 12px;
     }
 }

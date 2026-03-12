@@ -9,6 +9,26 @@ function toggleMobileMenu() {
     if (navRight) {
         navRight.classList.toggle('mobile-open');
     }
+    
+    updateMobileMenuPosition();
+}
+
+function updateMobileMenuPosition() {
+    const navCenter = document.querySelector('.nav-center');
+    const navRight = document.querySelector('.nav-right');
+    
+    if (navCenter && navRight && window.innerWidth <= 768) {
+        if (navCenter.classList.contains('mobile-open') && navRight.classList.contains('mobile-open')) {
+            setTimeout(() => {
+                const navCenterHeight = navCenter.offsetHeight;
+                const nav = navCenter.parentElement;
+                const navHeight = nav.offsetHeight;
+                navRight.style.top = `${navHeight + navCenterHeight}px`;
+            }, 10);
+        } else {
+            navRight.style.top = '';
+        }
+    }
 }
 
 // Close mobile menu when clicking on a link
@@ -40,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 if (navRight && navRight.classList.contains('mobile-open')) {
                     navRight.classList.remove('mobile-open');
+                    navRight.style.top = '';
                 }
             }
         });
@@ -101,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!navCenter.contains(e.target) && !navRight.contains(e.target) && !mobileToggle.contains(e.target)) {
                 navCenter.classList.remove('mobile-open');
                 navRight.classList.remove('mobile-open');
+                navRight.style.top = '';
             }
         }
     });
@@ -111,7 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const navRight = document.querySelector('.nav-right');
         if (window.innerWidth > 768) {
             if (navCenter) navCenter.classList.remove('mobile-open');
-            if (navRight) navRight.classList.remove('mobile-open');
+            if (navRight) {
+                navRight.classList.remove('mobile-open');
+                navRight.style.top = '';
+            }
+        } else {
+            updateMobileMenuPosition();
         }
     });
 

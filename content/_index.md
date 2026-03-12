@@ -5,8 +5,8 @@ bookToC: False
 ---
 
 <div class="hero-intro">
-  <h1>ChatOps incident management<br/>platform</h1>
-  <p class="hero-description">Open-source, self-hosted platform to manage incidents<br/>where your team already works</p>
+  <h1>ChatOps Incident Management<br/>Platform</h1>
+  <p class="hero-description">Open-source, self-hosted platform to manage incidents where your team already works</p>
 </div>
 
 <div class="hero-preview">
@@ -52,7 +52,7 @@ bookToC: False
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </div>
-          <strong>Easy migration from<br/>Alertmanager</strong>
+          <strong>Easy migration from Alertmanager</strong>
         </div>
         <div class="why-impulse-content">
           <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibition_rules" class="brand-color">inhibition rules</a> configuration</p>
@@ -93,7 +93,7 @@ bookToC: False
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg>
           </div>
-          <strong>Free, self-hosted,<br/>open source</strong>
+          <strong>Free, self-hosted, open source</strong>
         </div>
         <div class="why-impulse-content">
           <p>Fork it, extend it, or contribute — your stack, your rules</p>
