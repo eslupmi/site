@@ -1,5 +1,8 @@
 publish
 resources
+
 **/*.png
 **/*.xcf
 **/*.excalidraw.svg
+
+!static/preview.png

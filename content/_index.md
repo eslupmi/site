@@ -140,15 +140,6 @@ bookToC: False
       <div class="tile-feature-icon tile-feature-icon-telegram"></div>
     </div>
   </div>
-  <!-- 2 row -->
-  <div class="tile tile-feature tile-w1">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">No incident chaos</h3>
-      <p class="tile-feature-description">Incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-    </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
-  </div>
-
   <div class="tile tile-feature tile-w2 tile-feature-with-image">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">UI</h3>
@@ -158,35 +149,11 @@ bookToC: False
       <img src="/sorting.png" alt="UI sorting" />
     </div>
   </div>
-  <!-- 3 row -->
+  <!-- 2 row -->
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Inhibition rules</h3>
       <p class="tile-feature-description"><a href="https://docs.impulse.bot/features/suppression/" class="brand-color">Suppress</a> child incidents when a parent incident is active</p>
-    </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
-  </div>
-
-  <div class="tile tile-feature tile-w1">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Unlimited escalation policies</h3>
-      <p class="tile-feature-description">Create as many <a href="https://docs.impulse.bot/configuration/escalation/" class="brand-color">escalation policies</a> as you need</p>
-    </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
-  </div>
-  
-  <div class="tile tile-feature tile-w1">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Task management integration</h3>
-      <p class="tile-feature-description">Create <a href="https://docs.impulse.bot/integrations/jira/" class="brand-color">Jira</a> tasks directly from messenger</p>
-    </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
-  </div>
-  <!-- 4 row -->
-  <div class="tile tile-feature tile-w1">
-    <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Multiple instances</h3>
-      <p class="tile-feature-description">Run multiple IMPulse instances to provide high availability</p>
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
@@ -197,12 +164,21 @@ bookToC: False
       <p class="tile-feature-description"><a href="https://docs.impulse.bot/features/snoozed-incidents/" class="brand-color">Freeze</a> incidents to handle them later</p>
     </div>
   </div>
-  <!-- 5 row -->
-  <div class="tile tile-feature tile-w2">
+
+  <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
-      <h3 class="tile-feature-title">High customization</h3>
-      <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/configuration/templates/" class="brand-color">Jinja2 templates</a> to customize incident messages</p>
+      <h3 class="tile-feature-title">Task management integration</h3>
+      <p class="tile-feature-description">Create <a href="https://docs.impulse.bot/integrations/jira/" class="brand-color">Jira</a> tasks directly from messenger</p>
     </div>
+    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
+  </div>
+  <!-- 3 row -->
+  <div class="tile tile-feature tile-w1">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">No incident chaos</h3>
+      <p class="tile-feature-description">Incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
+    </div>
+    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 
   <div class="tile tile-feature tile-w1">
@@ -212,12 +188,35 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-  <!-- 6 row -->
+
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Calendar integration</h3>
       <p class="tile-feature-description">Modify scheduling rotations right from your <a href="https://docs.impulse.bot/configuration/oncall/#google-calendar" class="brand-color">Google Calendar</a></p>
     </div>
+  </div>
+  <!-- 4 row -->
+  <div class="tile tile-feature tile-w2">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">High customization</h3>
+      <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/configuration/templates/" class="brand-color">Jinja2 templates</a> to customize incident messages</p>
+    </div>
+  </div>
+
+  <div class="tile tile-feature tile-w1">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">Unlimited escalation policies</h3>
+      <p class="tile-feature-description">Create as many <a href="https://docs.impulse.bot/configuration/escalation/" class="brand-color">escalation policies</a> as you need</p>
+    </div>
+    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
+  </div>
+
+  <div class="tile tile-feature tile-w1">
+    <div class="tile-feature-text">
+      <h3 class="tile-feature-title">Multiple instances</h3>
+      <p class="tile-feature-description">Run multiple IMPulse instances to provide high availability</p>
+    </div>
+    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 </div>
 
