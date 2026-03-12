@@ -21,21 +21,6 @@ bookToC: False
         <div class="why-impulse-header">
           <div class="why-impulse-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              <line x1="9" y1="8" x2="15" y2="8"></line>
-              <line x1="9" y1="12" x2="13" y2="12"></line>
-            </svg>
-          </div>
-          <strong>ChatOps approach</strong>
-        </div>
-        <div class="why-impulse-content">
-          <p>Work with incidents right where your team communicates</p>
-        </div>
-      </div>
-      <div class="why-impulse-item">
-        <div class="why-impulse-header">
-          <div class="why-impulse-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
@@ -71,6 +56,21 @@ bookToC: False
         </div>
         <div class="why-impulse-content">
           <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibition_rules" class="brand-color">inhibition rules</a> configuration</p>
+        </div>
+      </div>
+      <div class="why-impulse-item">
+        <div class="why-impulse-header">
+          <div class="why-impulse-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="9" y1="12" x2="13" y2="12"></line>
+            </svg>
+          </div>
+          <strong>ChatOps approach</strong>
+        </div>
+        <div class="why-impulse-content">
+          <p>Work with incidents right where your team communicates</p>
         </div>
       </div>
       <div class="why-impulse-item">
@@ -121,8 +121,6 @@ bookToC: False
 
 <div class="tiles-grid">
   <!-- 1 row -->
-  <div class="tile tile-w1 tile-empty"></div>
-
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Alert sources</h3>
@@ -142,10 +140,6 @@ bookToC: False
       <div class="tile-feature-icon tile-feature-icon-telegram"></div>
     </div>
   </div>
-
-  <div class="tile tile-w1 tile-empty"></div>
-
-
   <!-- 2 row -->
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
@@ -155,15 +149,15 @@ bookToC: False
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 
-  <div class="tile tile-feature tile-w3">
+  <div class="tile tile-feature tile-w2 tile-feature-with-image">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">UI</h3>
       <p class="tile-feature-description">Simple but highly customizable UI with data highlight</p>
     </div>
+    <div class="tile-feature-image">
+      <img src="/sorting.png" alt="UI sorting" />
+    </div>
   </div>
-
-
-
   <!-- 3 row -->
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
@@ -188,14 +182,7 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-
-  <div class="tile tile-w1 tile-empty"></div>
-
-
-
   <!-- 4 row -->
-  <div class="tile tile-w1 tile-empty"></div>
-
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Multiple instances</h3>
@@ -210,9 +197,6 @@ bookToC: False
       <p class="tile-feature-description"><a href="https://docs.impulse.bot/features/snoozed-incidents/" class="brand-color">Freeze</a> incidents to handle them later</p>
     </div>
   </div>
-
-
-
   <!-- 5 row -->
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
@@ -228,9 +212,7 @@ bookToC: False
     </div>
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
-
-  <div class="tile tile-w1 tile-empty"></div>
-
+  <!-- 6 row -->
   <div class="tile tile-feature tile-w2">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Calendar integration</h3>
