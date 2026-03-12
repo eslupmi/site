@@ -6,4 +6,5 @@ resources
 **/*.excalidraw.svg
 
 !static/preview.png
+!static/icon-*.png
 !static/tile-*.png

@@ -478,7 +478,7 @@ body {
     margin: 60px auto 0;
     padding: 0 20px;
     align-items: stretch;
-    max-width: 80%;
+    max-width: 60%;
 }
 
 .tile-w1 { 
@@ -513,6 +513,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    position: relative;
 }
 
 .tile-feature-with-image {
@@ -550,6 +551,38 @@ body {
     margin-bottom: 20px;
 }
 
+.tile-feature-icons-overlapping {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    --overlap: -18px;
+}
+
+.tile-icon-overlap {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    position: relative;
+}
+
+.tile-icon-overlap:not(:first-child) {
+    margin-left: var(--overlap);
+}
+
+.tile-icon-overlap:nth-child(1) {
+    z-index: 2;
+}
+
+.tile-icon-overlap:nth-child(2) {
+    z-index: 1;
+}
+
+.tile-icon-overlap:nth-child(3) {
+    z-index: 0;
+}
+
 .tile-feature-icon .tile-circle {
     width: 64px;
     height: 64px;
@@ -559,7 +592,7 @@ body {
 }
 
 .tile-feature-title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     color: #000000;
     text-align: left;
@@ -905,7 +938,7 @@ body {
         padding: 0 15px;
         align-items: start;
         max-width: 100%;
-        width: 70%;
+        width: 100%;
         box-sizing: border-box;
     }
 
@@ -934,9 +967,14 @@ body {
     }
     
     .tile-w2 .tile-feature-image {
-        width: 50%;
+        width: calc(50% - 10px);
         aspect-ratio: 1;
-        height: 100%;
+        overflow: hidden;
+        padding: 0px;
+        box-sizing: border-box;
+        border-radius: 16px;
+        align-self: center;
+        margin-right: 5px;
         flex: 0 0 auto;
     }
 

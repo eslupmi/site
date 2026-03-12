@@ -126,7 +126,10 @@ bookToC: False
       <h3 class="tile-feature-title">Alert sources</h3>
       <p class="tile-feature-description">Alertmanager and Grafana support</p>
     </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
+    <div class="tile-feature-icons-overlapping">
+      <img src="/icon-alertmanager.png" alt="Alertmanager" class="tile-icon-overlap tile-icon-first" />
+      <img src="/icon-grafana.png" alt="Grafana" class="tile-icon-overlap tile-icon-second" />
+    </div>
   </div>
 
   <div class="tile tile-feature tile-w1">
@@ -134,10 +137,10 @@ bookToC: False
       <h3 class="tile-feature-title">Multiple messengers support</h3>
       <p class="tile-feature-description">Slack, Mattermost, Telegram</p>
     </div>
-    <div class="tile-feature-icons">
-      <div class="tile-feature-icon tile-feature-icon-slack"></div>
-      <div class="tile-feature-icon tile-feature-icon-mattermost"></div>
-      <div class="tile-feature-icon tile-feature-icon-telegram"></div>
+    <div class="tile-feature-icons-overlapping">
+      <img src="/icon-slack.png" alt="Slack" class="tile-icon-overlap tile-icon-first" />
+      <img src="/icon-mattermost.png" alt="Mattermost" class="tile-icon-overlap tile-icon-second" />
+      <img src="/icon-telegram.png" alt="Telegram" class="tile-icon-overlap tile-icon-third" />
     </div>
   </div>
 
