@@ -485,7 +485,7 @@ body {
     grid-column: span 1; 
     width: 100%;
     aspect-ratio: 1 / 1;
-    min-height: 0;
+    position: relative;
 }
 .tile-w2 { 
     aspect-ratio: 2 / 1;
@@ -496,8 +496,10 @@ body {
     background: #e6e6e6;
     position: relative;
     overflow: hidden;
+    width: 100%;
     height: 100%;
     border: 1px solid var(--color-header-bg);
+    box-sizing: border-box;
 }
 
 
@@ -528,12 +530,14 @@ body {
 
 .tile-feature-image {
     flex: 0 0 auto;
-    width: 50%;
+    width: calc(50% - 10px);
     aspect-ratio: 1;
-    height: 100%;
     overflow: hidden;
     padding: 0px;
     box-sizing: border-box;
+    border-radius: 16px;
+    align-self: center;
+    margin-right: 5px;
 }
 
 .tile-feature-image img {
@@ -901,7 +905,7 @@ body {
         padding: 0 15px;
         align-items: start;
         max-width: 100%;
-        width: 100%;
+        width: 70%;
         box-sizing: border-box;
     }
 

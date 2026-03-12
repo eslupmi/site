@@ -140,13 +140,14 @@ bookToC: False
       <div class="tile-feature-icon tile-feature-icon-telegram"></div>
     </div>
   </div>
+
   <div class="tile tile-feature tile-w2 tile-feature-with-image">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">UI</h3>
       <p class="tile-feature-description">Simple but highly customizable UI with data highlight</p>
     </div>
     <div class="tile-feature-image">
-      <img src="/sorting.png" alt="UI sorting" />
+      <img src="/tile-ui-colors.png" alt="UI Colors" />
     </div>
   </div>
   <!-- 2 row -->
@@ -158,10 +159,13 @@ bookToC: False
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 
-  <div class="tile tile-feature tile-w2">
+  <div class="tile tile-feature tile-w2 tile-feature-with-image">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">Snoozed incidents</h3>
       <p class="tile-feature-description"><a href="https://docs.impulse.bot/features/snoozed-incidents/" class="brand-color">Freeze</a> incidents to handle them later</p>
+    </div>
+    <div class="tile-feature-image">
+      <img src="/tile-freeze.png" alt="Snoozed incidents" />
     </div>
   </div>
 
@@ -189,26 +193,31 @@ bookToC: False
     <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 
-  <div class="tile tile-feature tile-w2">
+  <div class="tile tile-feature tile-w2 tile-feature-with-image">
     <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Calendar integration</h3>
-      <p class="tile-feature-description">Modify scheduling rotations right from your <a href="https://docs.impulse.bot/configuration/oncall/#google-calendar" class="brand-color">Google Calendar</a></p>
+      <h3 class="tile-feature-title">Unlimited escalation policies</h3>
+      <p class="tile-feature-description">Create as many <a href="https://docs.impulse.bot/configuration/escalation/" class="brand-color">escalation policies</a> as you need</p>
+    </div>
+    <div class="tile-feature-image">
+      <img src="/tile-chains.png" alt="Unlimited escalation policies" />
     </div>
   </div>
   <!-- 4 row -->
-  <div class="tile tile-feature tile-w2">
+  <div class="tile tile-feature tile-w2 tile-feature-with-image">
     <div class="tile-feature-text">
       <h3 class="tile-feature-title">High customization</h3>
       <p class="tile-feature-description">Powerful <a href="https://docs.impulse.bot/configuration/templates/" class="brand-color">Jinja2 templates</a> to customize incident messages</p>
+    </div>
+    <div class="tile-feature-image">
+      <img src="/tile-templates.png" alt="High customization" />
     </div>
   </div>
 
   <div class="tile tile-feature tile-w1">
     <div class="tile-feature-text">
-      <h3 class="tile-feature-title">Unlimited escalation policies</h3>
-      <p class="tile-feature-description">Create as many <a href="https://docs.impulse.bot/configuration/escalation/" class="brand-color">escalation policies</a> as you need</p>
+      <h3 class="tile-feature-title">Calendar integration</h3>
+      <p class="tile-feature-description">Modify scheduling rotations right from your <a href="https://docs.impulse.bot/configuration/oncall/#google-calendar" class="brand-color">Google Calendar</a></p>
     </div>
-    <div class="tile-feature-icon"><div class="tile-circle"></div></div>
   </div>
 
   <div class="tile tile-feature tile-w1">
