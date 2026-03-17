@@ -178,7 +178,6 @@ body {
     background-color: var(--color-text-header);
     margin: 3px 0;
     transition: 0.3s;
-    /* border-radius: 2px; */
 }
 
 .btn {
@@ -374,6 +373,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 24px;
     padding: 0;
     width: 100%;
@@ -383,6 +383,7 @@ body {
     padding: 10px;
     width: 340px;
     min-width: 340px;
+    min-height: 150px;
     border: 1px solid var(--color-overlay-white-30);
     display: flex;
     flex-direction: column;
@@ -1015,21 +1016,26 @@ body {
     
     .why-impulse-fullwidth {
         margin-top: 60px;
-        padding: 20px 0;
+        padding: 40px 0;
     }
     
     .why-impulse-section {
         margin: 0;
         padding: 0 15px;
         overflow-x: auto;
+        scrollbar-width: none;
+    }
+    
+    .why-impulse-section::-webkit-scrollbar {
+        display: none;
     }
     
     .why-impulse-list {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: stretch;
         gap: 24px;
-        max-height: 320px;
         overflow-y: hidden;
         width: 1032px;
         margin: 0 auto;
