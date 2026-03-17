@@ -178,7 +178,7 @@ body {
     background-color: var(--color-text-header);
     margin: 3px 0;
     transition: 0.3s;
-    border-radius: 2px;
+    /* border-radius: 2px; */
 }
 
 .btn {
@@ -359,64 +359,30 @@ body {
     margin-top: 100px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    padding: 30px 0 22px 0;
+    padding: 50px 0 50px 0;
     background: var(--color-header-bg);
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-}
-
-.why-impulse-fullwidth::-webkit-scrollbar {
-    height: 8px;
-}
-
-.why-impulse-fullwidth::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.why-impulse-fullwidth::-webkit-scrollbar-thumb {
-    background: transparent;
-    border-radius: 4px;
-}
-
-.why-impulse-fullwidth:hover,
-.why-impulse-fullwidth:has(.why-impulse-section:hover),
-.why-impulse-fullwidth:has(.why-impulse-list:hover),
-.why-impulse-fullwidth:has(.why-impulse-item:hover) {
-    scrollbar-color: var(--color-scrollbar-thumb) transparent;
-}
-
-.why-impulse-fullwidth:hover::-webkit-scrollbar-thumb,
-.why-impulse-fullwidth:has(.why-impulse-section:hover)::-webkit-scrollbar-thumb,
-.why-impulse-fullwidth:has(.why-impulse-list:hover)::-webkit-scrollbar-thumb,
-.why-impulse-fullwidth:has(.why-impulse-item:hover)::-webkit-scrollbar-thumb {
-    background: var(--color-accent) transparent;
-}
-
-.why-impulse-fullwidth:hover::-webkit-scrollbar-thumb:hover,
-.why-impulse-fullwidth:has(.why-impulse-section:hover)::-webkit-scrollbar-thumb:hover,
-.why-impulse-fullwidth:has(.why-impulse-list:hover)::-webkit-scrollbar-thumb:hover,
-.why-impulse-fullwidth:has(.why-impulse-item:hover)::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent) transparent;
+    overflow-x: hidden;
 }
 
 .why-impulse-section {
     margin: 0 auto;
-    padding: 0;
+    padding: 0 40px;
+    max-width: 1800px;
 }
 
 .why-impulse-list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
-    padding: 0 40px;
-    width: max-content;
+    padding: 0;
+    width: 100%;
 }
 
 .why-impulse-item {
     padding: 10px;
     width: 340px;
     min-width: 340px;
-    border-radius: 16px;
     border: 1px solid var(--color-overlay-white-30);
     display: flex;
     flex-direction: column;
@@ -426,7 +392,6 @@ body {
 .why-impulse-header {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
     gap: 12px;
 }
 
@@ -455,7 +420,7 @@ body {
     color: var(--color-text-header);
     font-weight: 700;
     font-size: 18px;
-    text-align: right;
+    text-align: left;
 }
 
 .why-impulse-item p {
@@ -493,12 +458,12 @@ body {
 }
 
 .tile {
-    background: #e6e6e6;
+    /* background: #e6e6e6; */
     position: relative;
     overflow: hidden;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--color-header-bg);
+    border: 1.2px solid var(--color-header-bg);
     box-sizing: border-box;
 }
 
@@ -508,7 +473,7 @@ body {
 }
 
 .tile-feature {
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -524,7 +489,7 @@ body {
 }
 
 .tile-feature-with-image .tile-feature-text {
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
 }
@@ -536,7 +501,6 @@ body {
     overflow: hidden;
     padding: 0px;
     box-sizing: border-box;
-    border-radius: 16px;
     align-self: center;
     margin-right: 5px;
 }
@@ -977,7 +941,6 @@ body {
         overflow: hidden;
         padding: 0px;
         box-sizing: border-box;
-        border-radius: 16px;
         align-self: center;
         margin-right: 5px;
         flex: 0 0 auto;
@@ -990,7 +953,7 @@ body {
     }
     
     .tile-feature-with-image .tile-feature-text {
-        padding: 24px;
+        padding: 16px;
         display: flex;
         flex-direction: column;
     }
@@ -1057,17 +1020,27 @@ body {
     
     .why-impulse-section {
         margin: 0;
-        padding: 0;
+        padding: 0 15px;
+        overflow-x: auto;
     }
     
     .why-impulse-list {
-        padding: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        max-height: 320px;
+        overflow-y: hidden;
+        width: 1032px;
+        margin: 0 auto;
+        padding: 0;
     }
     
     .why-impulse-item {
         min-width: 0;
-        width: 282px;
-        padding: 20px;
+        width: 240px;
+        flex-shrink: 0;
+        padding: 10px;
     }
     
     .why-impulse-icon {
