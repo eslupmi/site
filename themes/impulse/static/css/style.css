@@ -412,7 +412,6 @@ body {
 
 .why-impulse-content {
     text-align: left;
-    margin-top: auto;
 }
 
 .why-impulse-item strong {
@@ -1128,26 +1127,27 @@ body {
         align-items: stretch;
         gap: 24px;
         overflow-y: hidden;
-        width: 1032px;
+        width: 1176px;
         margin: 0 auto;
         padding: 0;
     }
     
     .why-impulse-item {
         min-width: 0;
-        width: 240px;
+        width: 276px;
         flex-shrink: 0;
         padding: 10px;
+        gap: 8px;
     }
     
     .why-impulse-icon {
-        width: 44px;
-        height: 44px;
+        width: 32px;
+        height: 32px;
     }
     
     .why-impulse-icon svg {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
     }
     
     .why-impulse-item strong {
