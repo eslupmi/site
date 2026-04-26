@@ -1,0 +1,17 @@
+baseURL: ""
+languageCode: en-us
+title: IMPulse
+theme: impulse
+publishDir: "publish"
+resourceDir: "resources"
+
+params:
+  github_url: "https://github.com/eslupmi/impulse"
+
+# Use content/_index.md as homepage instead of index.md
+disableKinds: ["taxonomy", "term"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
