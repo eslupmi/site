@@ -552,7 +552,7 @@ body {
 .feature-group-cards .feature-group-body p {
     background: #e8e8e8;
     border-left: none;
-    border-radius: 6px;
+    border-radius: 0;
     padding: 14px 16px;
 }
 

@@ -107,11 +107,11 @@ bookToC: False
 
 <div class="integrations-card">
   <div class="integrations-row">
-    <span class="integrations-label">Messengers</span>
+    <span class="integrations-label">Chat platforms</span>
     <div class="integrations-pills">
-      <a href="https://docs.impulse.bot/stable/slack/" class="integration-pill"><img src="/icon-slack.png" alt="">Slack</a>
-      <a href="https://docs.impulse.bot/stable/mattermost/" class="integration-pill"><img src="/icon-mattermost.png" alt="">Mattermost</a>
-      <a href="https://docs.impulse.bot/stable/telegram/" class="integration-pill"><img src="/icon-telegram.png" alt="">Telegram</a>
+      <a href="https://docs.impulse.bot/stable/integrations/messengers/slack/" class="integration-pill"><img src="/icon-slack.png" alt="">Slack</a>
+      <a href="https://docs.impulse.bot/stable/integrations/messengers/mattermost/" class="integration-pill"><img src="/icon-mattermost.png" alt="">Mattermost</a>
+      <a href="https://docs.impulse.bot/stable/integrations/messengers/telegram/" class="integration-pill"><img src="/icon-telegram.png" alt="">Telegram</a>
     </div>
   </div>
   <div class="integrations-row">
@@ -122,7 +122,7 @@ bookToC: False
     </div>
   </div>
   <div class="integrations-row">
-    <span class="integrations-label">Calendar</span>
+    <span class="integrations-label">Schedules</span>
     <div class="integrations-pills">
       <a href="https://docs.impulse.bot/stable/integrations/calendars/google/" class="integration-pill"><img src="/icon-googlecalendar.svg" alt="">Google Calendar</a>
     </div>
@@ -141,15 +141,15 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-3">
     <div class="feature-group-body">
-      <p><strong>External notifications:</strong> connect anything via powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
-      <p><strong><a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
-      <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
+      <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/incident/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
+      <p><strong>Inhibition rules:</strong> <a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">suppress</a> child incidents when a parent incident is active</p>
       <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-      <p><strong>Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested</p>
-      <p><strong>Templating:</strong> Jinja2 templates let you customize incidents and Jira tasks</p>
-      <p><strong>High availability:</strong> run multiple IMPulse instances for reliability</p>
-      <p><strong>Single sign-on via messenger:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
-      <p><strong>Simple but customizable UI</strong></p>
+      <p><strong>Single Sign-On:</strong> no extra accounts - <a href="https://docs.impulse.bot/stable/guides/authentication/" class="brand-color">sign in</a> with your chat platform</p>
+      <p><strong>Templating:</strong> Jinja2 <a href="https://docs.impulse.bot/stable/concepts/templates/" class="brand-color">templates</a> let you customize incidents and Jira tasks</p>
+      <p><strong>Unlimited escalation policies:</strong> create as many <a href="https://docs.impulse.bot/stable/config_file/#messengerchains" class="brand-color">escalation policies</a> as you need, including nested</p>
+      <p><strong>External notifications:</strong> connect anything via powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
+      <p><strong>High availability:</strong> run multiple IMPulse instances for <a href="https://docs.impulse.bot/stable/concepts/ha/" class="brand-color">reliability</a></p>
+      <p><strong>Minimal UI:</strong> simple by design, customizable where it matters</p>
     </div>
   </article>
 </div>
@@ -160,11 +160,11 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-cards">
     <div class="feature-group-body">
-      <p><strong>Custom columns:</strong> show only what you need</p>
-      <p><strong>Label filtering:</strong> Alertmanager-style selectors with regex</p>
-      <p><strong>Multi-column sorting:</strong> focus on what's important</p>
-      <p><strong>Cell highlighting:</strong> color fields based on their value</p>
-      <p class="feature-group-card-wide"><strong>Schedule editor:</strong> <a href="https://docs.impulse.bot/stable/config_file/#ui-chains" class="brand-color">UI chains</a> let you set up schedules without editing the config<img src="/calendar.png" alt="UI Chains calendar"></p>
+      <p>Display only the <a href="https://docs.impulse.bot/stable/config_file/#uicolumns" class="brand-color">columns</a> you actually need</p>
+      <p><a href="https://docs.impulse.bot/stable/config_file/#uifilters" class="brand-color">Filter</a> incidents with Alertmanager-like filters</p>
+      <p>Sort incidents exactly the way you want with multi-column <a href="https://docs.impulse.bot/stable/config_file/#uisorting" class="brand-color">sorting</a></p>
+      <p>Highlight the information that matters to you with <a href="https://docs.impulse.bot/stable/config_file/#uicolors" class="brand-color">custom colors</a></p>
+      <p class="feature-group-card-wide">Set schedules without editing the config using <a href="https://docs.impulse.bot/stable/config_file/#ui-chains" class="brand-color">ui chains</a><img src="/calendar.png" alt="ui chains calendar"></p>
     </div>
   </article>
 </div>
