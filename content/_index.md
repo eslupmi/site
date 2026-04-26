@@ -102,12 +102,11 @@ bookToC: False
   </div>
 </section>
 
-<a id="features"></a>
-<h2 class="features-title">Features</h2>
+<a id="integrations"></a>
+<h2 class="features-title">Integrations</h2>
 
 <div class="feature-groups-grid">
-  <article class="feature-group feature-group-half feature-group-1">
-    <h3>Integrations</h3>
+  <article class="feature-group feature-group-full feature-group-1">
     <div class="feature-group-body">
       <div class="feature-group-list">
         <p><strong>Messengers:</strong> <a href="https://docs.impulse.bot/stable/slack/" class="brand-color">Slack</a>, <a href="https://docs.impulse.bot/stable/mattermost/" class="brand-color">Mattermost</a>, <a href="https://docs.impulse.bot/stable/telegram/" class="brand-color">Telegram</a></p>
@@ -116,10 +115,32 @@ bookToC: False
         <p><strong>Task management:</strong> <a href="https://docs.impulse.bot/stable/integrations/task_management/jira/" class="brand-color">Jira</a></p>
         <p><strong>External integrations:</strong> powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
       </div>
+      <img src="/integrations.png" alt="IMPulse integrations: Slack, Mattermost, Telegram, Alertmanager, Grafana, Google Calendar, Jira" class="feature-group-integrations-image">
     </div>
   </article>
-  <article class="feature-group feature-group-half feature-group-2">
-    <h3>UI</h3>
+</div>
+
+<a id="features"></a>
+<h2 class="features-title">Features</h2>
+
+<div class="feature-groups-grid">
+  <article class="feature-group feature-group-full feature-group-3">
+    <div class="feature-group-body">
+      <p><strong><a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
+      <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
+      <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
+      <p><strong>Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested chains</p>
+      <p><strong>High customization:</strong> powerful Jinja2 templates to customize incident messages</p>
+      <p><strong>Reliability:</strong> run multiple IMPulse instances to provide high availability</p>
+    </div>
+  </article>
+</div>
+
+<a id="ui"></a>
+<h2 class="features-title">UI</h2>
+
+<div class="feature-groups-grid">
+  <article class="feature-group feature-group-full feature-group-2">
     <div class="feature-group-body">
       <p><strong>Single sign-on via messenger:</strong> no extra accounts &mdash; log in with Slack, Mattermost or Telegram</p>
       <p><strong>Label-based filtering:</strong> Alertmanager-style selectors like <code>severity=~"warning|critical"</code> to slice incidents on the fly</p>
@@ -127,28 +148,6 @@ bookToC: False
       <p><strong>Multi-column sorting:</strong> sort by severity, time or custom order (e.g. <code>info &rarr; warning &rarr; critical</code>)</p>
       <p><strong>Color-coded severity:</strong> spot critical incidents at a glance with per-value cell highlighting</p>
       <p><strong>Visual escalation chain editor:</strong> build and tweak on-call routing without editing YAML</p>
-    </div>
-  </article>
-  <article class="feature-group feature-group-full feature-group-3">
-    <h3>Incident Control</h3>
-    <div class="feature-group-body">
-      <p><strong><a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
-      <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
-      <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-      <p><strong>Unlimited escalation policies:</strong> Create as many escalation policies as you need</p>
-    </div>
-  </article>
-  <article class="feature-group feature-group-half feature-group-4">
-    <h3>Customization</h3>
-    <div class="feature-group-body">
-      <p><strong>High customization:</strong> Powerful Jinja2 templates to customize incident messages</p>
-      <p>Simple but highly customizable UI with data highlight</p>
-    </div>
-  </article>
-  <article class="feature-group feature-group-half feature-group-5">
-    <h3>Reliability</h3>
-    <div class="feature-group-body">
-      <p><strong>Multiple instances:</strong> Run multiple IMPulse instances to provide high availability</p>
     </div>
   </article>
 </div>
