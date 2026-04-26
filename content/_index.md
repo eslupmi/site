@@ -126,12 +126,14 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-3">
     <div class="feature-group-body">
-      <p><strong><a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
-      <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
-      <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-      <p><strong>Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested chains</p>
-      <p><strong>High customization:</strong> powerful Jinja2 templates to customize incident messages</p>
-      <p><strong>Reliability:</strong> run multiple IMPulse instances to provide high availability</p>
+      <p><strong>- <a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
+      <p><strong>- Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
+      <p><strong>- No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
+      <p><strong>- Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested chains</p>
+      <p><strong>- High customization:</strong> powerful Jinja2 templates to customize incident messages</p>
+      <p><strong>- Reliability:</strong> run multiple IMPulse instances to provide high availability</p>
+      <p><strong>- Single sign-on via messenger:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
+      <p><strong>- Simple, feature-rich UI:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
     </div>
   </article>
 </div>
@@ -142,7 +144,6 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-2">
     <div class="feature-group-body">
-      <p><strong>Single sign-on via messenger:</strong> no extra accounts &mdash; log in with Slack, Mattermost or Telegram</p>
       <p><strong>Label-based filtering:</strong> Alertmanager-style selectors like <code>severity=~"warning|critical"</code> to slice incidents on the fly</p>
       <p><strong>Customizable columns:</strong> pick the fields that matter, hide the rest, use hidden columns for search</p>
       <p><strong>Multi-column sorting:</strong> sort by severity, time or custom order (e.g. <code>info &rarr; warning &rarr; critical</code>)</p>
