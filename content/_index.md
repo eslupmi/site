@@ -116,16 +116,17 @@ bookToC: False
         <p><strong>Task management:</strong> <a href="https://docs.impulse.bot/stable/integrations/task_management/jira/" class="brand-color">Jira</a></p>
         <p><strong>External integrations:</strong> powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
       </div>
-      <img src="/integrations-icons.png" alt="Integrations icons" class="feature-group-integrations-image" />
     </div>
   </article>
   <article class="feature-group feature-group-half feature-group-2">
     <h3>UI</h3>
     <div class="feature-group-body">
-      <p><strong>Authorize:</strong> use messenger for authorization</p>
-      <p><strong>Escalation chain editor:</strong> modify chains from UI</p>
-      <p><strong>Customization:</strong> show data columns you need</p>
-      <p><strong>Focus on important data:</strong> color highlight based on data</p>
+      <p><strong>Single sign-on via messenger:</strong> no extra accounts &mdash; log in with Slack, Mattermost or Telegram</p>
+      <p><strong>Label-based filtering:</strong> Alertmanager-style selectors like <code>severity=~"warning|critical"</code> to slice incidents on the fly</p>
+      <p><strong>Customizable columns:</strong> pick the fields that matter, hide the rest, use hidden columns for search</p>
+      <p><strong>Multi-column sorting:</strong> sort by severity, time or custom order (e.g. <code>info &rarr; warning &rarr; critical</code>)</p>
+      <p><strong>Color-coded severity:</strong> spot critical incidents at a glance with per-value cell highlighting</p>
+      <p><strong>Visual escalation chain editor:</strong> build and tweak on-call routing without editing YAML</p>
     </div>
   </article>
   <article class="feature-group feature-group-full feature-group-3">
