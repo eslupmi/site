@@ -499,14 +499,8 @@ body {
     line-height: 1.6;
     color: #6a6a6a;
     text-align: left;
-    border-left: 2px solid var(--color-accent-25);
-    border-radius: 0 4px 4px 0;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.feature-group-body p:hover {
-    border-left-color: var(--color-accent);
-    background-color: var(--color-accent-15);
+    border-left: 4px solid #c9c9c9;
+    border-radius: 4px;
 }
 
 .feature-group-body p strong {
@@ -522,6 +516,61 @@ body {
 
 .feature-group-body p strong a:hover {
     border-bottom-color: var(--color-accent);
+}
+
+.feature-group-with-image {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.feature-group-with-image .feature-group-body {
+    flex: 1 1 60%;
+    min-width: 0;
+    margin-top: 0;
+}
+
+.feature-group-image {
+    flex: 0 0 40%;
+}
+
+.feature-group-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.feature-group-cards .feature-group-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.feature-group-cards .feature-group-body p {
+    background: #e8e8e8;
+    border-left: none;
+    border-radius: 6px;
+    padding: 14px 16px;
+}
+
+.feature-group-cards .feature-group-body p:hover {
+    background: #dcdcdc;
+    border-left: none;
+}
+
+.feature-group-cards .feature-group-body img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+    border-radius: 4px;
+}
+
+.feature-group-cards .feature-group-card-wide {
+    grid-column: 1 / -1;
 }
 
 .integrations-card {
@@ -558,13 +607,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: flex-end;
 }
 
 .integrations-text {
     font-size: 14px;
     color: var(--color-text-on-light-text);
-    justify-self: start;
-    text-align: left;
+    justify-self: end;
+    text-align: right;
 }
 
 .integration-pill {
@@ -937,8 +987,8 @@ body {
         position: absolute;
         top: calc(100% + 22px);
         right: 10px;
-        width: 55%;
-        max-width: 55%;
+        width: 44%;
+        max-width: 44%;
         background-color: var(--color-header-bg);
         flex-direction: column;
         gap: 0;
@@ -973,8 +1023,10 @@ body {
         margin-top: 0;
     }
     
-    .github-star-btn {
+    .nav-right .github-star-btn {
         justify-content: center;
+        padding: 10px 16px;
+        text-align: center;
     }
     
     .github-stars {
@@ -1073,6 +1125,19 @@ body {
     .feature-group-half,
     .feature-group-full {
         grid-column: 1;
+    }
+
+    .feature-group-with-image {
+        flex-direction: column;
+    }
+
+    .feature-group-image {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .feature-group-cards .feature-group-body {
+        grid-template-columns: 1fr;
     }
 
     .integrations-card {

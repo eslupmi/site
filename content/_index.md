@@ -133,10 +133,6 @@ bookToC: False
       <a href="https://docs.impulse.bot/stable/integrations/task_management/jira/" class="integration-pill"><img src="/icon-jira.svg" alt="">Jira</a>
     </div>
   </div>
-  <div class="integrations-row">
-    <span class="integrations-label">External</span>
-    <div class="integrations-text">powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></div>
-  </div>
 </div>
 
 <a id="features"></a>
@@ -145,14 +141,15 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-3">
     <div class="feature-group-body">
+      <p><strong>External notifications:</strong> connect anything via powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
       <p><strong><a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
       <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
       <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-      <p><strong>Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested chains</p>
-      <p><strong>High customization:</strong> powerful Jinja2 templates to customize incident messages</p>
-      <p><strong>High availability:</strong> run multiple IMPulse instances to provide reliability</p>
+      <p><strong>Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested</p>
+      <p><strong>Templating:</strong> Jinja2 templates let you customize incidents and Jira tasks</p>
+      <p><strong>High availability:</strong> run multiple IMPulse instances for reliability</p>
       <p><strong>Single sign-on via messenger:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
-      <p><strong>Simple, feature-rich UI:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
+      <p><strong>Simple but customizable UI</strong></p>
     </div>
   </article>
 </div>
@@ -161,13 +158,13 @@ bookToC: False
 <h2 class="features-title">UI</h2>
 
 <div class="feature-groups-grid">
-  <article class="feature-group feature-group-full feature-group-2">
+  <article class="feature-group feature-group-full feature-group-cards">
     <div class="feature-group-body">
-      <p><strong>Label-based filtering:</strong> Alertmanager-style selectors with regex support</p>
-      <p><strong>Customizable columns:</strong> pick the fields that matter, hide the rest, use hidden columns for search</p>
-      <p><strong>Multi-column sorting:</strong> sort by severity, time or custom order (e.g. <code>info &rarr; warning &rarr; critical</code>)</p>
-      <p><strong>Value-based cell coloring:</strong> color any field based on its value</p>
-      <p><strong>Escalation chain editor:</strong> UI chains let you set up schedules without editing the config</p>
+      <p><strong>Custom columns:</strong> show only what you need</p>
+      <p><strong>Label filtering:</strong> Alertmanager-style selectors with regex</p>
+      <p><strong>Multi-column sorting:</strong> focus on what's important</p>
+      <p><strong>Cell highlighting:</strong> color fields based on their value</p>
+      <p class="feature-group-card-wide"><strong>Schedule editor:</strong> <a href="https://docs.impulse.bot/stable/config_file/#ui-chains" class="brand-color">UI chains</a> let you set up schedules without editing the config<img src="/calendar.png" alt="UI Chains calendar"></p>
     </div>
   </article>
 </div>
