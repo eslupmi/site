@@ -49,7 +49,7 @@ bookToC: False
         </div>
         <strong>Easy migration from Alertmanager</strong>
         <div class="why-impulse-content">
-          <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibition_rules" class="brand-color">inhibition rules</a> configuration</p>
+          <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibit_rules" class="brand-color">inhibition rules</a> configuration</p>
         </div>
       </div>
       <div class="why-impulse-item">
@@ -105,19 +105,38 @@ bookToC: False
 <a id="integrations"></a>
 <h2 class="features-title">Integrations</h2>
 
-<div class="feature-groups-grid">
-  <article class="feature-group feature-group-full feature-group-1">
-    <div class="feature-group-body">
-      <div class="feature-group-list">
-        <p><strong>Messengers:</strong> <a href="https://docs.impulse.bot/stable/slack/" class="brand-color">Slack</a>, <a href="https://docs.impulse.bot/stable/mattermost/" class="brand-color">Mattermost</a>, <a href="https://docs.impulse.bot/stable/telegram/" class="brand-color">Telegram</a></p>
-        <p><strong>Alert sources:</strong> <a href="https://docs.impulse.bot/stable/alertmanager/" class="brand-color">Alertmanager</a>, <a href="https://docs.impulse.bot/stable/grafana/" class="brand-color">Grafana</a></p>
-        <p><strong>Calendar:</strong> <a href="https://docs.impulse.bot/stable/integrations/calendars/google/" class="brand-color">Google Calendar</a></p>
-        <p><strong>Task management:</strong> <a href="https://docs.impulse.bot/stable/integrations/task_management/jira/" class="brand-color">Jira</a></p>
-        <p><strong>External integrations:</strong> powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
-      </div>
-      <img src="/integrations.png" alt="IMPulse integrations: Slack, Mattermost, Telegram, Alertmanager, Grafana, Google Calendar, Jira" class="feature-group-integrations-image">
+<div class="integrations-card">
+  <div class="integrations-row">
+    <span class="integrations-label">Messengers</span>
+    <div class="integrations-pills">
+      <a href="https://docs.impulse.bot/stable/slack/" class="integration-pill"><img src="/icon-slack.png" alt="">Slack</a>
+      <a href="https://docs.impulse.bot/stable/mattermost/" class="integration-pill"><img src="/icon-mattermost.png" alt="">Mattermost</a>
+      <a href="https://docs.impulse.bot/stable/telegram/" class="integration-pill"><img src="/icon-telegram.png" alt="">Telegram</a>
     </div>
-  </article>
+  </div>
+  <div class="integrations-row">
+    <span class="integrations-label">Alert sources</span>
+    <div class="integrations-pills">
+      <a href="https://docs.impulse.bot/stable/alertmanager/" class="integration-pill"><img src="/icon-alertmanager.png" alt="">Alertmanager</a>
+      <a href="https://docs.impulse.bot/stable/grafana/" class="integration-pill"><img src="/icon-grafana.png" alt="">Grafana</a>
+    </div>
+  </div>
+  <div class="integrations-row">
+    <span class="integrations-label">Calendar</span>
+    <div class="integrations-pills">
+      <a href="https://docs.impulse.bot/stable/integrations/calendars/google/" class="integration-pill"><img src="/icon-googlecalendar.svg" alt="">Google Calendar</a>
+    </div>
+  </div>
+  <div class="integrations-row">
+    <span class="integrations-label">Task management</span>
+    <div class="integrations-pills">
+      <a href="https://docs.impulse.bot/stable/integrations/task_management/jira/" class="integration-pill"><img src="/icon-jira.svg" alt="">Jira</a>
+    </div>
+  </div>
+  <div class="integrations-row">
+    <span class="integrations-label">External</span>
+    <div class="integrations-text">powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></div>
+  </div>
 </div>
 
 <a id="features"></a>
@@ -126,14 +145,14 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-3">
     <div class="feature-group-body">
-      <p><strong>- <a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
-      <p><strong>- Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
-      <p><strong>- No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
-      <p><strong>- Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested chains</p>
-      <p><strong>- High customization:</strong> powerful Jinja2 templates to customize incident messages</p>
-      <p><strong>- Reliability:</strong> run multiple IMPulse instances to provide high availability</p>
-      <p><strong>- Single sign-on via messenger:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
-      <p><strong>- Simple, feature-rich UI:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
+      <p><strong><a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">Inhibition</a> rules:</strong> suppress child incidents when a parent incident is active</p>
+      <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/buttons/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
+      <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
+      <p><strong>Unlimited escalation policies:</strong> create as many escalation policies as you need, including nested chains</p>
+      <p><strong>High customization:</strong> powerful Jinja2 templates to customize incident messages</p>
+      <p><strong>High availability:</strong> run multiple IMPulse instances to provide reliability</p>
+      <p><strong>Single sign-on via messenger:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
+      <p><strong>Simple, feature-rich UI:</strong> no extra accounts - log in with Slack, Mattermost or Telegram</p>
     </div>
   </article>
 </div>
@@ -144,11 +163,11 @@ bookToC: False
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-2">
     <div class="feature-group-body">
-      <p><strong>Label-based filtering:</strong> Alertmanager-style selectors like <code>severity=~"warning|critical"</code> to slice incidents on the fly</p>
+      <p><strong>Label-based filtering:</strong> Alertmanager-style selectors with regex support</p>
       <p><strong>Customizable columns:</strong> pick the fields that matter, hide the rest, use hidden columns for search</p>
       <p><strong>Multi-column sorting:</strong> sort by severity, time or custom order (e.g. <code>info &rarr; warning &rarr; critical</code>)</p>
-      <p><strong>Color-coded severity:</strong> spot critical incidents at a glance with per-value cell highlighting</p>
-      <p><strong>Visual escalation chain editor:</strong> build and tweak on-call routing without editing YAML</p>
+      <p><strong>Value-based cell coloring:</strong> color any field based on its value</p>
+      <p><strong>Escalation chain editor:</strong> UI chains let you set up schedules without editing the config</p>
     </div>
   </article>
 </div>
