@@ -250,9 +250,11 @@ body {
     padding: 120px 0 80px;
     text-align: center;
     background: linear-gradient(to right, 
-        var(--color-overlay-white-transparent) 0%, 
-        var(--color-bg-primary) 10%, 
-        var(--color-bg-primary) 90%, 
+        var(--color-overlay-white-transparent) 0, 
+        var(--color-overlay-white-transparent) calc(50% - 691px), 
+        var(--color-bg-primary) calc(50% - 591px), 
+        var(--color-bg-primary) calc(50% + 591px), 
+        var(--color-overlay-white-transparent) calc(50% + 691px), 
         var(--color-overlay-white-transparent) 100%);
 }
 
