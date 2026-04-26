@@ -3,7 +3,7 @@ name: Deploy site to Pages
 on:
   push:
     branches:
-      - hugo
+      - main
   workflow_dispatch:
 
 permissions:
