@@ -4,6 +4,7 @@ title: IMPulse
 theme: impulse
 publishDir: "publish"
 resourceDir: "resources"
+googleAnalytics: "G-NXCTTCP248"
 
 params:
   github_url: "https://github.com/eslupmi/impulse"
