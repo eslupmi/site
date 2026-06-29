@@ -144,6 +144,7 @@ bookToC: False
       <p><strong>Snoozed incidents:</strong> <a href="https://docs.impulse.bot/stable/concepts/incident/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
       <p><strong>Inhibition rules:</strong> <a href="https://docs.impulse.bot/stable/concepts/inhibition/#inhibition" class="brand-color">suppress</a> child incidents when a parent incident is active</p>
       <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
+      <p><strong>Maintenance:</strong> mute incidents during <a href="https://docs.impulse.bot/stable/concepts/maintenance" class="brand-color">maintenance</a></p>
       <p><strong>Single Sign-On:</strong> no extra accounts - <a href="https://docs.impulse.bot/stable/guides/authentication/" class="brand-color">sign in</a> with your chat platform</p>
       <p><strong>Templating:</strong> Jinja2 <a href="https://docs.impulse.bot/stable/concepts/templates/" class="brand-color">templates</a> let you customize incidents and Jira tasks</p>
       <p><strong>Unlimited escalation policies:</strong> create as many <a href="https://docs.impulse.bot/stable/config_file/#messengerchains" class="brand-color">escalation policies</a> as you need, including nested</p>
