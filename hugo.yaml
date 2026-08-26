@@ -1,13 +1,22 @@
-baseURL: ""
+baseURL: "https://impulse.bot/"
 languageCode: en-us
 title: IMPulse
 theme: impulse
 publishDir: "publish"
 resourceDir: "resources"
 googleAnalytics: "G-NXCTTCP248"
+enableRobotsTXT: true
 
 params:
   github_url: "https://github.com/eslupmi/impulse"
+  description: "Open-source, self-hosted ChatOps incident management platform for teams that own their data"
+  og_image: "/preview.png"
+  twitter_card: "summary_large_image"
+
+sitemap:
+  changefreq: weekly
+  priority: 0.7
+  filename: sitemap.xml
 
 # Use content/_index.md as homepage instead of index.md
 disableKinds: ["taxonomy", "term"]

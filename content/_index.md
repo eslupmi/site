@@ -1,7 +1,8 @@
 ---
-title: main
+title: IMPulse
 type: docs
 bookToC: False
+description: Open-source, self-hosted ChatOps incident management platform for Slack, Mattermost, Telegram, Alertmanager, and Grafana.
 ---
 
 <div class="hero-intro">
@@ -10,7 +11,7 @@ bookToC: False
 </div>
 
 <div class="hero-preview">
-  <img src="/preview.png" alt="IMPulse preview" class="hero-preview-img">
+  <img src="/preview.png" alt="" class="hero-preview-img">
   <p class="hero-preview-text">for teams that own their data</p>
 </div>
 
@@ -146,7 +147,7 @@ bookToC: False
       <p><strong>No chaos:</strong> incidents have a <a href="https://docs.impulse.bot/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
       <p><strong>Maintenance:</strong> mute incidents during <a href="https://docs.impulse.bot/stable/concepts/maintenance" class="brand-color">maintenance</a></p>
       <p><strong>Single Sign-On:</strong> no extra accounts - <a href="https://docs.impulse.bot/stable/guides/authentication/" class="brand-color">sign in</a> with your chat platform</p>
-      <p><strong>Templating:</strong> Jinja2 <a href="https://docs.impulse.bot/stable/concepts/templates/" class="brand-color">templates</a> let you customize incidents and Jira tasks</p>
+      <p><strong>Templating:</strong> Jinja2 <a href="https://docs.impulse.bot/stable/concepts/templates/" class="brand-color">templates</a> for incidents, thread messages, and Jira tasks</p>
       <p><strong>Unlimited escalation policies:</strong> create as many <a href="https://docs.impulse.bot/stable/config_file/#messengerchains" class="brand-color">escalation policies</a> as you need, including nested</p>
       <p><strong>External notifications:</strong> connect anything via powerful <a href="https://docs.impulse.bot/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
       <p><strong>High availability:</strong> run multiple IMPulse instances for <a href="https://docs.impulse.bot/stable/concepts/ha/" class="brand-color">reliability</a></p>
