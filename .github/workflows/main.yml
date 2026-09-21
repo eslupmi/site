@@ -18,8 +18,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -35,13 +33,14 @@ jobs:
           import os, pathlib, re, urllib.request
           readme = urllib.request.urlopen(os.environ["IMPULSE_README"]).read().decode()
           section = re.search(r"## Features\n+(.*?)(?=\n## )", readme, re.S).group(1)
-          def links(s):
+          def md(s):
+              s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
               return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2" class="brand-color">\1</a>', s)
           items = []
           for line in section.splitlines():
-              m = re.match(r"- ([^:]+): (.*)", line)
+              m = re.match(r"- (.*)", line)
               if m:
-                  items.append(f"<p><strong>{m.group(1)}:</strong> {links(m.group(2))}</p>")
+                  items.append(f"<p>{md(m.group(1))}</p>")
           html = "\n      ".join(items)
           path = pathlib.Path("content/_index.md")
           path.write_text(path.read_text().replace("<!-- FEATURES -->", html, 1))
@@ -57,7 +56,7 @@ jobs:
         run: hugo --minify
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./publish
 
@@ -67,9 +66,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
