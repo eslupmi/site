@@ -27,6 +27,26 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Sync features from impulse README
+        env:
+          IMPULSE_README: https://raw.githubusercontent.com/eslupmi/impulse/readme-seo/README.md
+        run: |
+          python3 <<'PY'
+          import os, pathlib, re, urllib.request
+          readme = urllib.request.urlopen(os.environ["IMPULSE_README"]).read().decode()
+          section = re.search(r"## Features\n+(.*?)(?=\n## )", readme, re.S).group(1)
+          def links(s):
+              return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2" class="brand-color">\1</a>', s)
+          items = []
+          for line in section.splitlines():
+              m = re.match(r"- ([^:]+): (.*)", line)
+              if m:
+                  items.append(f"<p><strong>{m.group(1)}:</strong> {links(m.group(2))}</p>")
+          html = "\n      ".join(items)
+          path = pathlib.Path("content/_index.md")
+          path.write_text(path.read_text().replace("<!-- FEATURES -->", html, 1))
+          PY
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
