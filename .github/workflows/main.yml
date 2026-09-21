@@ -27,7 +27,7 @@ jobs:
 
       - name: Sync features from impulse README
         env:
-          IMPULSE_README: https://raw.githubusercontent.com/eslupmi/impulse/readme-seo/README.md
+          IMPULSE_README: https://raw.githubusercontent.com/eslupmi/impulse/develop/README.md
         run: |
           python3 <<'PY'
           import os, pathlib, re, urllib.request
