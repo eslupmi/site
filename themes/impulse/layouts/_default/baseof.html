@@ -27,9 +27,14 @@
     {{ partial "components/head" . }}
 </head>
 <body>
+    {{ partial "header.html" . }}
+    <div id="page">
     {{ block "main" . }}{{ end }}
-    
-    <!-- JavaScript -->
+    </div>
+    <div class="container">
+    {{ partial "footer.html" . }}
+    </div>
+    {{ partial "privacy.html" . }}
     <script src="{{ "js/main.js" | relURL }}"></script>
 </body>
 </html> 
