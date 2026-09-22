@@ -50,7 +50,7 @@ description: Open-source, self-hosted ChatOps incident management platform for S
         </div>
         <strong>Easy migration from Alertmanager</strong>
         <div class="why-impulse-content">
-          <p>Similar <a href="https://docs.impulse.bot/stable/config_file/#route" class="brand-color">route</a> and <a href="https://docs.impulse.bot/stable/config_file/#inhibit_rules" class="brand-color">inhibition rules</a> configuration</p>
+          <p>Similar <a href="/docs/stable/config_file/#route" class="brand-color">route</a> and <a href="/docs/stable/config_file/#inhibit_rules" class="brand-color">inhibition rules</a> configuration</p>
         </div>
       </div>
       <div class="why-impulse-item">
@@ -110,28 +110,28 @@ description: Open-source, self-hosted ChatOps incident management platform for S
   <div class="integrations-row">
     <span class="integrations-label">Chat platforms</span>
     <div class="integrations-pills">
-      <a href="https://docs.impulse.bot/stable/integrations/messengers/slack/" class="integration-pill"><img src="/icon-slack.png" alt="">Slack</a>
-      <a href="https://docs.impulse.bot/stable/integrations/messengers/mattermost/" class="integration-pill"><img src="/icon-mattermost.png" alt="">Mattermost</a>
-      <a href="https://docs.impulse.bot/stable/integrations/messengers/telegram/" class="integration-pill"><img src="/icon-telegram.png" alt="">Telegram</a>
+      <a href="/docs/stable/integrations/messengers/slack/" class="integration-pill"><img src="/icon-slack.png" alt="">Slack</a>
+      <a href="/docs/stable/integrations/messengers/mattermost/" class="integration-pill"><img src="/icon-mattermost.png" alt="">Mattermost</a>
+      <a href="/docs/stable/integrations/messengers/telegram/" class="integration-pill"><img src="/icon-telegram.png" alt="">Telegram</a>
     </div>
   </div>
   <div class="integrations-row">
     <span class="integrations-label">Alert sources</span>
     <div class="integrations-pills">
-      <a href="https://docs.impulse.bot/stable/alertmanager/" class="integration-pill"><img src="/icon-alertmanager.png" alt="">Alertmanager</a>
-      <a href="https://docs.impulse.bot/stable/grafana/" class="integration-pill"><img src="/icon-grafana.png" alt="">Grafana</a>
+      <a href="/docs/stable/alertmanager/" class="integration-pill"><img src="/icon-alertmanager.png" alt="">Alertmanager</a>
+      <a href="/docs/stable/grafana/" class="integration-pill"><img src="/icon-grafana.png" alt="">Grafana</a>
     </div>
   </div>
   <div class="integrations-row">
     <span class="integrations-label">Schedules</span>
     <div class="integrations-pills">
-      <a href="https://docs.impulse.bot/stable/integrations/calendars/google/" class="integration-pill"><img src="/icon-googlecalendar.svg" alt="">Google Calendar</a>
+      <a href="/docs/stable/integrations/calendars/google/" class="integration-pill"><img src="/icon-googlecalendar.svg" alt="">Google Calendar</a>
     </div>
   </div>
   <div class="integrations-row">
     <span class="integrations-label">Task management</span>
     <div class="integrations-pills">
-      <a href="https://docs.impulse.bot/stable/integrations/task_management/jira/" class="integration-pill"><img src="/icon-jira.svg" alt="">Jira</a>
+      <a href="/docs/stable/integrations/task_management/jira/" class="integration-pill"><img src="/icon-jira.svg" alt="">Jira</a>
     </div>
   </div>
 </div>
@@ -142,7 +142,16 @@ description: Open-source, self-hosted ChatOps incident management platform for S
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-3">
     <div class="feature-group-body">
-<!-- FEATURES -->
+<p><strong>Snoozed incidents:</strong> <a href="/docs/stable/concepts/incident/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
+      <p><strong>Inhibition rules:</strong> <a href="/docs/stable/concepts/inhibition/#inhibition" class="brand-color">suppress</a> child incidents when a parent incident is active</p>
+      <p><strong>No chaos:</strong> incidents have a <a href="/docs/stable/concepts/incident/#lifecycle" class="brand-color">lifecycle</a> that automatically prevents duplicate incidents and reduces noise</p>
+      <p><strong>Maintenance:</strong> mute incidents during <a href="/docs/stable/concepts/maintenance" class="brand-color">maintenance</a></p>
+      <p><strong>Single Sign-On:</strong> no extra accounts - <a href="/docs/stable/guides/authentication/" class="brand-color">sign in</a> with your chat platform</p>
+      <p><strong>Templating:</strong> Jinja2 <a href="/docs/stable/concepts/templates/" class="brand-color">templates</a> for incidents, thread messages, and Jira tasks</p>
+      <p><strong>Unlimited escalation policies:</strong> create as many <a href="/docs/stable/config_file/#messengerchains" class="brand-color">escalation policies</a> as you need, including nested</p>
+      <p><strong>External notifications:</strong> connect anything via powerful <a href="/docs/stable/config_file/#webhooks" class="brand-color">webhooks</a></p>
+      <p><strong>High availability:</strong> run multiple IMPulse instances for <a href="/docs/stable/concepts/ha/" class="brand-color">reliability</a></p>
+      <p><strong>Minimal UI:</strong> simple by design, customizable where it matters</p>
     </div>
   </article>
 </div>
@@ -153,11 +162,11 @@ description: Open-source, self-hosted ChatOps incident management platform for S
 <div class="feature-groups-grid">
   <article class="feature-group feature-group-full feature-group-cards">
     <div class="feature-group-body">
-      <p>Display only the <a href="https://docs.impulse.bot/stable/config_file/#uicolumns" class="brand-color">columns</a> you actually need</p>
-      <p><a href="https://docs.impulse.bot/stable/config_file/#uifilters" class="brand-color">Filter</a> incidents with Alertmanager-like filters</p>
-      <p>Sort incidents exactly the way you want with multi-column <a href="https://docs.impulse.bot/stable/config_file/#uisorting" class="brand-color">sorting</a></p>
-      <p>Highlight the information that matters to you with <a href="https://docs.impulse.bot/stable/config_file/#uicolors" class="brand-color">custom colors</a></p>
-      <p class="feature-group-card-wide">Set schedules without editing the config using <a href="https://docs.impulse.bot/stable/config_file/#ui-chains" class="brand-color">ui chains</a><img src="/calendar.png" alt="ui chains calendar"></p>
+      <p>Display only the <a href="/docs/stable/config_file/#uicolumns" class="brand-color">columns</a> you actually need</p>
+      <p><a href="/docs/stable/config_file/#uifilters" class="brand-color">Filter</a> incidents with Alertmanager-like filters</p>
+      <p>Sort incidents exactly the way you want with multi-column <a href="/docs/stable/config_file/#uisorting" class="brand-color">sorting</a></p>
+      <p>Highlight the information that matters to you with <a href="/docs/stable/config_file/#uicolors" class="brand-color">custom colors</a></p>
+      <p class="feature-group-card-wide">Set schedules without editing the config using <a href="/docs/stable/config_file/#ui-chains" class="brand-color">ui chains</a><img src="/calendar.png" alt="ui chains calendar"></p>
     </div>
   </article>
 </div>
