@@ -67,12 +67,18 @@ body {
     color: var(--color-text-on-light-text);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+#page { flex: 1 0 auto; }
+body > .container { width: 100%; margin: 0; padding: 0; }
 
 .header {
     padding: 15px 0;
@@ -883,16 +889,11 @@ body {
 
 
 .footer {
-    padding: 40px 0 40px;
+    padding: 40px 0;
     background-color: var(--color-header-bg);
     backdrop-filter: blur(10px);
     border-top: 1px solid var(--color-overlay-white-10);
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
 }
 
 
@@ -1322,14 +1323,6 @@ body {
     
     .tile-feature-description {
         font-size: 13px;
-    }
-    
-    .footer {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
-        left: 0;
-        right: 0;
     }
     
     .footer-content {
