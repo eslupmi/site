@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import hashlib, html, json, os, posixpath, re, shutil, subprocess, sys
+import html, json, os, posixpath, re, shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,6 +66,17 @@ def rewrite(href, src, name):
 
 def fix_hrefs(text, src, name):
     return re.sub(r'href="([^"]+)"', lambda m: f'href="{rewrite(m.group(1), src, name)}"', text)
+
+def fix_images(text, src, name):
+    def repl(m):
+        url = m.group(2)
+        if "://" in url or url.startswith(("#", "/")):
+            return m.group(0)
+        target = posixpath.normpath(posixpath.join(posixpath.dirname(src), url))
+        if target.startswith(".."):
+            return m.group(0)
+        return f'![{m.group(1)}](/docs/{name}/{target})'
+    return re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', repl, text)
 
 def nav_html(items, titles, current, name, root=True):
     out = []
@@ -148,7 +159,7 @@ def render(name, dest, chrome):
     index = []
     for rel in pages:
         md.reset()
-        body = fix_hrefs(md.convert(texts[rel]), rel, name)
+        body = fix_hrefs(md.convert(fix_images(texts[rel], rel, name)), rel, name)
         toc = md.toc if "<li>" in md.toc else ""
         url = page_url(name, rel)
         nav = nav_html(cfg.get("nav"), titles, rel, name)
@@ -193,17 +204,9 @@ def render(name, dest, chrome):
     (dest / "search.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")))
 
 def build(name, ref, chrome):
-    dest = OUT / name
-    current = subprocess.check_output(["git", "rev-parse", ref], cwd=SRC, text=True).strip()
-    stamp = dest / ".rev"
-    blob = current + Path(__file__).read_text() + CSS.read_text() + JS.read_text() + "".join(chrome)
-    token = hashlib.sha256(blob.encode()).hexdigest()
-    if stamp.is_file() and stamp.read_text() == token:
-        return
     sh(["git", "checkout", "-f", ref], cwd=SRC)
     sh(["git", "clean", "-fd"], cwd=SRC)
-    render(name, dest, chrome)
-    stamp.write_text(token)
+    render(name, OUT / name, chrome)
 
 def main():
     ensure()
