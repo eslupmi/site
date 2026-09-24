@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode | default "en" }}">
 <head>
+    <script>
+        (function () {
+            var t = localStorage.getItem("theme");
+            if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.dataset.theme = t;
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
@@ -27,9 +34,14 @@
     {{ partial "components/head" . }}
 </head>
 <body>
+    {{ partial "header.html" . }}
+    <div id="page">
     {{ block "main" . }}{{ end }}
-    
-    <!-- JavaScript -->
+    </div>
+    <div class="container">
+    {{ partial "footer.html" . }}
+    </div>
+    {{ partial "privacy.html" . }}
     <script src="{{ "js/main.js" | relURL }}"></script>
 </body>
 </html> 
