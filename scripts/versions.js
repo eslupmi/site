@@ -3,8 +3,11 @@
     return location.pathname.split("/")[2];
   }
 
+  var versionsData;
+  var searchData = {};
+
   function initVersion() {
-    fetch("/docs/versions.json").then(function (r) { return r.json(); }).then(function (data) {
+    function fill(data) {
       var sel = document.createElement("select");
       sel.className = "docs-version";
       sel.setAttribute("aria-label", "Version");
@@ -41,6 +44,11 @@
         if (v === version()) a.className = "active";
         panel.appendChild(a);
       });
+    }
+    if (versionsData) { fill(versionsData); return; }
+    fetch("/docs/versions.json").then(function (r) { return r.json(); }).then(function (data) {
+      versionsData = data;
+      fill(data);
     });
   }
 
@@ -109,9 +117,15 @@
       links[i].classList.add("active");
       links[i].scrollIntoView({ block: "nearest" });
     });
-    fetch("/docs/" + version() + "/search.json").then(function (r) { return r.json(); }).then(function (data) {
+    var ver = version();
+    function use(data) {
       pages = data;
       if (input.value.trim()) run();
+    }
+    if (searchData[ver]) { use(searchData[ver]); return; }
+    fetch("/docs/" + ver + "/search.json").then(function (r) { return r.json(); }).then(function (data) {
+      searchData[ver] = data;
+      use(data);
     });
   }
 
@@ -152,7 +166,19 @@
     var header = document.querySelector(".header");
     var footer = document.querySelector(".footer");
     var top = (header ? header.offsetHeight : 71) + 16;
-    var edge = footer ? Math.min(innerHeight, footer.getBoundingClientRect().top) : innerHeight;
+    var footerH = footer ? footer.offsetHeight : 0;
+    var main = document.querySelector(".docs-main");
+    var article = main && main.querySelector("article");
+    var pad = 0;
+    if (main) {
+      var cs = getComputedStyle(main);
+      pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    }
+    var content = (article ? article.offsetHeight : 0) + pad;
+    var headerH = header ? header.offsetHeight : 71;
+    var edge = innerHeight;
+    if (content + footerH + headerH <= innerHeight) edge = innerHeight - footerH - 1;
+    else if (footer) edge = Math.min(innerHeight, footer.getBoundingClientRect().top);
     var h = Math.max(0, edge - top - 16);
     boxes.forEach(function (el) {
       el.style.top = top + "px";

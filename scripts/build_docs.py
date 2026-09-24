@@ -7,7 +7,6 @@ OUT = ROOT / "publish" / "docs"
 SRC = Path("/tmp/impulse")
 REPO = "https://github.com/eslupmi/impulse.git"
 JS = Path(__file__).with_name("versions.js")
-CSS = Path(__file__).with_name("docs.css")
 VENV = ROOT / ".venv"
 
 def sh(args, **kw):
@@ -152,8 +151,6 @@ def render(name, dest, chrome):
             shutil.copy2(p, target)
     (dest / "js").mkdir(parents=True, exist_ok=True)
     shutil.copy(JS, dest / "js" / "versions.js")
-    (dest / "assets").mkdir(parents=True, exist_ok=True)
-    (dest / "assets" / "docs.css").write_text(CSS.read_text())
     index = []
     for rel in pages:
         md.reset()
@@ -182,7 +179,7 @@ def render(name, dest, chrome):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
-<link id="docs-css" rel="stylesheet" href="/docs/{name}/assets/docs.css">
+<link id="docs-css" rel="stylesheet" href="/css/docs.css">
 {gtag}
 </head>
 <body>

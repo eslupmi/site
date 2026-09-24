@@ -1,4 +1,3 @@
-// Mobile menu toggle function
 function toggleMobileMenu() {
     const navCenter = document.querySelector('.nav-center');
     const navRight = document.querySelector('.nav-right');
@@ -63,6 +62,26 @@ document.addEventListener('click', function (e) {
         b.setAttribute('aria-label', on ? 'Close ' + label.toLowerCase() : label);
     });
 });
+
+function updateDocsToggles() {
+    const buttons = document.querySelectorAll('.docs-nav-toggle, .docs-version-toggle');
+    if (!buttons.length) return;
+    const footer = document.querySelector('.footer');
+    const gap = footer ? Math.max(0, innerHeight - footer.getBoundingClientRect().top) : 0;
+    const noScroll = document.documentElement.scrollHeight <= innerHeight;
+    if (scrollY < docsScrollY - 4) docsTogglesOn = true;
+    else if (scrollY > docsScrollY + 4) docsTogglesOn = false;
+    docsScrollY = scrollY;
+    const open = document.querySelector('.docs-nav.open, .docs-version-panel.open');
+    buttons.forEach(b => {
+        b.style.bottom = (16 + gap) + 'px';
+        b.classList.toggle('is-on', !!open || noScroll || docsTogglesOn);
+    });
+}
+let docsScrollY = scrollY;
+let docsTogglesOn = false;
+addEventListener('scroll', updateDocsToggles, { passive: true });
+addEventListener('resize', updateDocsToggles);
 
 function closeMobileMenu() {
     const navCenter = document.querySelector('.nav-center');
@@ -139,28 +158,15 @@ function syncCanonical(doc) {
 }
 
 function syncDocsCss(doc) {
-    const next = doc.querySelector('link[href*="/assets/docs.css"]');
-    let link = document.getElementById('docs-css');
-    if (!next) {
-        if (link) link.remove();
-        return Promise.resolve();
-    }
-    const href = next.getAttribute('href');
-    if (link && (link.dataset.href || link.getAttribute('href')) === href) {
-        link.dataset.href = href;
-        return Promise.resolve();
-    }
-    if (!link) {
-        link = document.createElement('link');
-        link.id = 'docs-css';
-        link.rel = 'stylesheet';
-        document.head.appendChild(link);
-    }
-    link.dataset.href = href;
-    return new Promise(resolve => {
-        link.onload = link.onerror = () => resolve();
-        link.setAttribute('href', href);
-    });
+    if (document.getElementById('docs-css')) return Promise.resolve();
+    const next = doc.querySelector('link[href*="docs.css"]');
+    if (!next) return Promise.resolve();
+    const link = document.createElement('link');
+    link.id = 'docs-css';
+    link.rel = 'stylesheet';
+    link.href = next.getAttribute('href');
+    document.head.appendChild(link);
+    return Promise.resolve();
 }
 
 function scrollToTarget() {
@@ -219,6 +225,7 @@ function ensureDocsJs() {
 }
 
 async function loadPage(url, push) {
+    if (url.pathname === '/docs' || url.pathname === '/docs/') url = new URL('/docs/stable/' + url.hash, url.origin);
     const seq = ++navSeq;
     const res = await fetch(url);
     if (seq !== navSeq) return;
@@ -305,171 +312,68 @@ window.addEventListener('popstate', function () {
 document.addEventListener('DOMContentLoaded', function() {
     initCodeCopy();
     updateCurrentNav();
+    loadGitHubStars();
+    updateDocsToggles();
 
-    // Add scroll effect to header
-    const header = document.querySelector('.header');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Get CSS variable value for header background
-        const headerBg = getComputedStyle(document.documentElement)
-            .getPropertyValue('--color-header-bg').trim();
-        
-        if (scrollTop > 100) {
-            // Use header-bg with higher opacity when scrolled
-            header.style.backgroundColor = headerBg;
-        } else {
-            // Use header-bg with backdrop-filter for initial state
-            header.style.backgroundColor = headerBg;
-        }
-        
-        lastScrollTop = scrollTop;
-    });
-
-    // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         const navCenter = document.querySelector('.nav-center');
         const navRight = document.querySelector('.nav-right');
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        
-        if (navCenter && navRight && mobileToggle) {
-            if (!navCenter.contains(e.target) && !navRight.contains(e.target) && !mobileToggle.contains(e.target)) {
-                navCenter.classList.remove('mobile-open');
-                navRight.classList.remove('mobile-open');
-                navRight.style.top = '';
-                navCenter.style.width = '';
-                navRight.style.width = '';
-            }
-        }
+        if (!navCenter || !navRight || !mobileToggle) return;
+        if (navCenter.contains(e.target) || navRight.contains(e.target) || mobileToggle.contains(e.target)) return;
+        closeMobileMenu();
     });
 
-    // Handle window resize
     window.addEventListener('resize', function() {
-        const navCenter = document.querySelector('.nav-center');
-        const navRight = document.querySelector('.nav-right');
-        if (window.innerWidth > 768) {
-            if (navCenter) navCenter.classList.remove('mobile-open');
-            if (navRight) {
-                navRight.classList.remove('mobile-open');
-                navRight.style.top = '';
-                navCenter.style.width = '';
-                navRight.style.width = '';
-            }
-        } else {
-            updateMobileMenuPosition();
-        }
+        if (window.innerWidth > 768) closeMobileMenu();
+        else updateMobileMenuPosition();
     });
-
-    // Load GitHub stars
-    loadGitHubStars();
 });
 
-// Function to load GitHub stars count
 function loadGitHubStars() {
-    const starsElement = document.getElementById('github-stars');
-    const starCountElement = starsElement?.querySelector('.star-count');
-    
-    if (!starCountElement) return;
-
-    const owner = 'eslupmi';
-    const repo = 'impulse';
-    
-    // Cache key for localStorage
-    const cacheKey = `github-stars-${owner}-${repo}`;
-    const cacheTimeKey = `github-stars-time-${owner}-${repo}`;
-    const cacheDuration = 60 * 60 * 1000; // 1 hour in milliseconds
-    
-    // Check cache
-    const cachedTime = localStorage.getItem(cacheTimeKey);
-    const cachedCount = localStorage.getItem(cacheKey);
-    const now = Date.now();
-    
-    if (cachedTime && cachedCount && (now - parseInt(cachedTime)) < cacheDuration) {
-        // Use cached value
-        starCountElement.textContent = formatStarCount(parseInt(cachedCount));
-    } else {
-        // Fetch new value
-        fetchGitHubStars(owner, repo, starCountElement, cacheKey, cacheTimeKey);
+    const el = document.querySelector('#github-stars .star-count');
+    if (!el) return;
+    const key = 'github-stars-eslupmi-impulse';
+    const timeKey = key + '-time';
+    const cached = localStorage.getItem(key);
+    const cachedTime = +localStorage.getItem(timeKey);
+    const show = n => { el.textContent = n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n); };
+    if (cached && Date.now() - cachedTime < 3600000) {
+        show(+cached);
+        return;
     }
-}
-
-function fetchGitHubStars(owner, repo, starCountElement, cacheKey, cacheTimeKey) {
-    // Use GitHub API to get star count
-    fetch(`https://api.github.com/repos/${owner}/${repo}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch GitHub data');
-            }
-            return response.json();
-        })
+    fetch('https://api.github.com/repos/eslupmi/impulse')
+        .then(r => { if (!r.ok) throw 0; return r.json(); })
         .then(data => {
-            const starCount = data.stargazers_count || 0;
-            starCountElement.textContent = formatStarCount(starCount);
-            
-            // Cache the result
-            if (cacheKey && cacheTimeKey) {
-                localStorage.setItem(cacheKey, starCount.toString());
-                localStorage.setItem(cacheTimeKey, Date.now().toString());
-            }
+            const n = data.stargazers_count || 0;
+            show(n);
+            localStorage.setItem(key, n);
+            localStorage.setItem(timeKey, Date.now());
         })
-        .catch(error => {
-            console.error('Error fetching GitHub stars:', error);
-            // Try to use cached value if available, even if expired
-            if (cacheKey) {
-                const cachedCount = localStorage.getItem(cacheKey);
-                if (cachedCount) {
-                    starCountElement.textContent = formatStarCount(parseInt(cachedCount));
-                    return;
-                }
-            }
-            // Keep the element visible, just show empty or default value
-            starCountElement.textContent = '';
-        });
+        .catch(() => { if (cached) show(+cached); else el.textContent = ''; });
 }
 
-function formatStarCount(count) {
-    if (count >= 1000) {
-        return (count / 1000).toFixed(1) + 'k';
-    }
-    return count.toString();
-}
-
-// Privacy Policy Modal functions
 function openPrivacyModal() {
     const modal = document.getElementById('privacy-modal');
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
+    if (!modal) return;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 }
 
 function closePrivacyModal() {
     const modal = document.getElementById('privacy-modal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
-    }
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
 }
 
-// Close modal when clicking outside of it
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('click', function (e) {
+    if (e.target.id === 'privacy-modal') closePrivacyModal();
+});
+
+document.addEventListener('keydown', function (e) {
     const modal = document.getElementById('privacy-modal');
-    if (modal) {
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                closePrivacyModal();
-            }
-        });
-        
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && modal.style.display === 'block') {
-                closePrivacyModal();
-            }
-        });
-    }
+    if (e.key === 'Escape' && modal && modal.style.display === 'block') closePrivacyModal();
 });
 
 document.addEventListener("click", function (e) {

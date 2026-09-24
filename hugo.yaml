@@ -1,10 +1,8 @@
 baseURL: "https://impulse.bot/"
-languageCode: en-us
+locale: en-us
 title: IMPulse
 theme: impulse
 publishDir: "publish"
-resourceDir: "resources"
-googleAnalytics: "G-NXCTTCP248"
 enableRobotsTXT: true
 
 params:
@@ -18,7 +16,6 @@ sitemap:
   priority: 0.7
   filename: sitemap.xml
 
-# Use content/_index.md as homepage instead of index.md
 disableKinds: ["taxonomy", "term"]
 
 markup:

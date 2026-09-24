@@ -1,7 +1,5 @@
 ---
 title: IMPulse
-type: docs
-bookToC: False
 description: Open-source, self-hosted ChatOps incident management platform for Slack, Mattermost, Telegram, Alertmanager, and Grafana.
 ---
 
@@ -140,7 +138,7 @@ description: Open-source, self-hosted ChatOps incident management platform for S
 <h2 class="features-title">Features</h2>
 
 <div class="feature-groups-grid">
-  <article class="feature-group feature-group-full feature-group-3">
+  <article class="feature-group feature-group-full">
     <div class="feature-group-body">
 <p><strong>Snoozed incidents:</strong> <a href="/docs/stable/concepts/incident/#freeze" class="brand-color">freeze</a> incidents to handle them later</p>
       <p><strong>Inhibition rules:</strong> <a href="/docs/stable/concepts/inhibition/#inhibition" class="brand-color">suppress</a> child incidents when a parent incident is active</p>
