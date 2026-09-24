@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import html, json, os, posixpath, re, shutil, subprocess, sys
+import html, json, posixpath, re, shutil, subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -7,19 +7,9 @@ OUT = ROOT / "publish" / "docs"
 SRC = Path("/tmp/impulse")
 REPO = "https://github.com/eslupmi/impulse.git"
 JS = Path(__file__).with_name("versions.js")
-VENV = ROOT / ".venv"
 
 def sh(args, **kw):
     subprocess.check_call(args, **kw)
-
-def ensure():
-    if Path(sys.prefix).resolve() == VENV.resolve():
-        return
-    py = VENV / "bin" / "python"
-    if not py.is_file():
-        sh(["uv", "venv", str(VENV)])
-        sh(["uv", "pip", "install", "markdown", "pymdown-extensions", "pygments", "pyyaml", "--python", str(py)])
-    os.execv(py, [str(py), *sys.argv])
 
 def tags():
     found = []
@@ -214,7 +204,6 @@ def build(name, ref, chrome):
     render(name, OUT / name, chrome)
 
 def main():
-    ensure()
     if (SRC / ".git").is_dir():
         sh(["git", "fetch", "--tags", "--force", "origin"], cwd=SRC)
     else:

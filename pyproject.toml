@@ -1,0 +1,14 @@
+[project]
+name = "impulse-site"
+version = "0.0.0"
+requires-python = ">=3.10"
+dependencies = [
+  "hugo==0.166.0",
+  "markdown",
+  "pymdown-extensions",
+  "pygments",
+  "pyyaml",
+]
+
+[tool.uv]
+package = false
