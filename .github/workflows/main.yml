@@ -95,7 +95,7 @@ jobs:
         run: hugo --minify
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.2.0
 
       - name: Build versioned docs
         run: python3 scripts/build_docs.py
