@@ -20,13 +20,18 @@ function updateMobileMenuPosition() {
     if (navCenter && navRight && window.innerWidth <= 768) {
         if (navCenter.classList.contains('mobile-open') && navRight.classList.contains('mobile-open')) {
             setTimeout(() => {
-                const navCenterHeight = navCenter.offsetHeight;
-                const nav = navCenter.parentElement;
-                const navHeight = nav.offsetHeight;
-                navRight.style.top = `${navHeight + navCenterHeight}px`;
+                navCenter.style.width = '';
+                navRight.style.width = '';
+                const w = Math.max(navCenter.offsetWidth, navRight.offsetWidth);
+                navCenter.style.width = w + 'px';
+                navRight.style.width = w + 'px';
+                const parent = navCenter.offsetParent.getBoundingClientRect().top;
+                navRight.style.top = `${navCenter.getBoundingClientRect().bottom - parent}px`;
             }, 10);
         } else {
             navRight.style.top = '';
+            navCenter.style.width = '';
+            navRight.style.width = '';
         }
     }
 }
@@ -41,6 +46,24 @@ function updateCurrentNav() {
     });
 }
 
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.docs-nav-toggle, .docs-version-toggle');
+    if (!btn) return;
+    const root = btn.parentElement;
+    const panels = [
+        [root.querySelector('.docs-nav-toggle'), root.querySelector('.docs-nav'), 'Contents'],
+        [root.querySelector('.docs-version-toggle'), root.querySelector('.docs-version-panel'), 'Version']
+    ];
+    panels.forEach(([b, p]) => { if (b !== btn && p) p.classList.remove('open'); });
+    panels.find(([b]) => b === btn)[1].classList.toggle('open');
+    panels.forEach(([b, p, label]) => {
+        if (!b) return;
+        const on = p && p.classList.contains('open');
+        b.setAttribute('aria-expanded', on ? 'true' : 'false');
+        b.setAttribute('aria-label', on ? 'Close ' + label.toLowerCase() : label);
+    });
+});
+
 function closeMobileMenu() {
     const navCenter = document.querySelector('.nav-center');
     const navRight = document.querySelector('.nav-right');
@@ -48,7 +71,9 @@ function closeMobileMenu() {
     if (navRight) {
         navRight.classList.remove('mobile-open');
         navRight.style.top = '';
+        navRight.style.width = '';
     }
+    if (navCenter) navCenter.style.width = '';
 }
 
 function initCodeCopy() {
@@ -60,12 +85,17 @@ function initCodeCopy() {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'code-copy-btn';
-        btn.textContent = 'Copy';
+        btn.setAttribute('aria-label', 'Copy');
+        btn.innerHTML = '<svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><svg class="icon-copied" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>';
         btn.addEventListener('click', () => {
             const text = pre.innerText.replace(/\n$/, '');
             const done = () => {
-                btn.textContent = 'Copied';
-                setTimeout(() => { btn.textContent = 'Copy'; }, 1200);
+                btn.classList.add('copied');
+                btn.setAttribute('aria-label', 'Copied');
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.setAttribute('aria-label', 'Copy');
+                }, 1200);
             };
             const legacy = () => {
                 const area = document.createElement('textarea');
@@ -83,24 +113,6 @@ function initCodeCopy() {
         });
         box.before(wrap);
         wrap.append(btn, box);
-    });
-}
-
-const motionObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-function initHomeMotion() {
-    document.querySelectorAll('.feature-card, .comparison-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        motionObserver.observe(el);
     });
 }
 
@@ -162,11 +174,11 @@ function scrollToTarget() {
     const el = document.getElementById(decodeURIComponent(id));
     if (!el) return;
     if (main && main.contains(el)) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.scrollIntoView({ block: 'start' });
         return;
     }
     const header = document.querySelector('.header');
-    window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - header.offsetHeight - 20, behavior: 'smooth' });
+    window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - header.offsetHeight - 20);
 }
 
 function docsVer(path) {
@@ -179,6 +191,7 @@ function keepDocsNav(current, next, prevPath, nextPath) {
     const oldNav = current.querySelector('.docs-nav');
     const newNav = next.querySelector('.docs-nav');
     if (!oldNav || !newNav) return;
+    oldNav.classList.remove('open');
     const top = oldNav.scrollTop;
     const href = newNav.querySelector('a.active')?.getAttribute('href');
     newNav.replaceWith(oldNav);
@@ -236,7 +249,6 @@ async function loadPage(url, push) {
     closeMobileMenu();
     updateCurrentNav();
     initCodeCopy();
-    initHomeMotion();
     scrollToTarget();
     if (keptNav) {
         document.querySelector('.docs-nav').scrollTop = keptNav.top;
@@ -271,13 +283,13 @@ document.addEventListener('click', function (e) {
     if (!targetSection) return;
     e.preventDefault();
     if (document.querySelector('.docs-main')?.contains(targetSection)) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetSection.scrollIntoView({ block: 'start' });
         closeMobileMenu();
         return;
     }
     const headerHeight = document.querySelector('.header').offsetHeight;
     const targetPosition = targetSection.offsetTop - headerHeight - 20;
-    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    window.scrollTo(0, targetPosition);
     closeMobileMenu();
 });
 
@@ -316,8 +328,6 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 
-    initHomeMotion();
-
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         const navCenter = document.querySelector('.nav-center');
@@ -329,6 +339,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 navCenter.classList.remove('mobile-open');
                 navRight.classList.remove('mobile-open');
                 navRight.style.top = '';
+                navCenter.style.width = '';
+                navRight.style.width = '';
             }
         }
     });
@@ -342,6 +354,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (navRight) {
                 navRight.classList.remove('mobile-open');
                 navRight.style.top = '';
+                navCenter.style.width = '';
+                navRight.style.width = '';
             }
         } else {
             updateMobileMenuPosition();
@@ -358,13 +372,7 @@ function loadGitHubStars() {
     const starCountElement = starsElement?.querySelector('.star-count');
     
     if (!starCountElement) return;
-    
-    // Ensure the element is visible
-    if (starsElement) {
-        starsElement.style.display = 'inline-flex';
-    }
-    
-    // GitHub repository info
+
     const owner = 'eslupmi';
     const repo = 'impulse';
     
@@ -462,4 +470,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
+
+document.addEventListener("click", function (e) {
+    if (!e.target.closest(".theme-toggle")) return;
+    var theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
 }); 

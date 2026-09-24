@@ -129,8 +129,6 @@ def load_chrome():
 def render(name, dest, chrome):
     import markdown
     import yaml
-    from pygments.formatters import HtmlFormatter
-
     header, footer, modal, gtag = chrome
     cfg = yaml.safe_load((SRC / "docs" / "mkdocs.yml").read_text())
     content = SRC / "docs" / (cfg.get("docs_dir") or "content")
@@ -155,7 +153,7 @@ def render(name, dest, chrome):
     (dest / "js").mkdir(parents=True, exist_ok=True)
     shutil.copy(JS, dest / "js" / "versions.js")
     (dest / "assets").mkdir(parents=True, exist_ok=True)
-    (dest / "assets" / "docs.css").write_text(CSS.read_text() + HtmlFormatter().get_style_defs(".highlight"))
+    (dest / "assets" / "docs.css").write_text(CSS.read_text())
     index = []
     for rel in pages:
         md.reset()
@@ -168,6 +166,13 @@ def render(name, dest, chrome):
         page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function () {{
+  var t = localStorage.getItem("theme");
+  if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.dataset.theme = t;
+}})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(titles[rel])} - {html.escape(site_name)}</title>
@@ -185,6 +190,9 @@ def render(name, dest, chrome):
 <div id="page">
 <div class="docs-page">
 <div class="docs-layout{" no-toc" if not toc else ""}">
+<button type="button" class="docs-nav-toggle" aria-label="Contents" aria-expanded="false"><svg class="docs-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><svg class="docs-nav-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<button type="button" class="docs-version-toggle" aria-label="Version" aria-expanded="false"><svg class="docs-version-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg><svg class="docs-version-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<nav class="docs-version-panel"></nav>
 <nav class="docs-nav">{nav}</nav>
 <main class="docs-main"><article>{body}</article></main>
 <div class="docs-side"><div class="docs-search"><input type="search" placeholder="Search" aria-label="Search"><div class="docs-search-list" hidden></div></div>{toc_html}<div class="docs-version-slot"></div></div>

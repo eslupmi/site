@@ -29,6 +29,18 @@
       label.appendChild(document.createTextNode("Version"));
       label.appendChild(sel);
       slot.replaceChildren(label);
+      var panel = document.querySelector(".docs-version-panel");
+      if (!panel) return;
+      panel.replaceChildren();
+      data.versions.forEach(function (v) {
+        var a = document.createElement("a");
+        var p = location.pathname.split("/");
+        p[2] = v;
+        a.href = p.join("/") + location.search + location.hash;
+        a.textContent = v;
+        if (v === version()) a.className = "active";
+        panel.appendChild(a);
+      });
     });
   }
 
@@ -130,6 +142,27 @@
   });
   document.addEventListener("scroll", hideTip, true);
 
+  function fitSides() {
+    var boxes = document.querySelectorAll(".docs-nav, .docs-side");
+    if (!boxes.length) return;
+    if (innerWidth <= 1100) {
+      boxes.forEach(function (el) { el.style.top = el.style.height = ""; });
+      return;
+    }
+    var header = document.querySelector(".header");
+    var footer = document.querySelector(".footer");
+    var top = (header ? header.offsetHeight : 71) + 16;
+    var edge = footer ? Math.min(innerHeight, footer.getBoundingClientRect().top) : innerHeight;
+    var h = Math.max(0, edge - top - 16);
+    boxes.forEach(function (el) {
+      el.style.top = top + "px";
+      el.style.height = h + "px";
+    });
+  }
+  document.addEventListener("scroll", fitSides, { capture: true, passive: true });
+  window.addEventListener("resize", fitSides);
+  fitSides();
+
   function initNav() {
     var nav = document.querySelector(".docs-nav");
     if (!nav || nav.dataset.ready) return;
@@ -164,6 +197,7 @@
     initVersion();
     initSearch();
     initNav();
+    fitSides();
   };
   if (document.querySelector(".docs-page")) window.initDocs();
 })();
