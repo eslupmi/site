@@ -678,6 +678,10 @@ body > .container { width: 100%; margin: 0; padding: 0; }
     flex-shrink: 0;
 }
 
+:root[data-theme="dark"] .integration-pill img[src$="mattermost.svg"] {
+    filter: brightness(0) invert(1);
+}
+
 .integration-pill:hover {
     border-color: var(--color-text-on-light-text);
 }

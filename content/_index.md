@@ -109,7 +109,7 @@ description: Open-source, self-hosted ChatOps incident management platform for S
     <span class="integrations-label">Chat platforms</span>
     <div class="integrations-pills">
       <a href="/docs/stable/integrations/messengers/slack/" class="integration-pill"><img src="/icon-slack.png" alt="">Slack</a>
-      <a href="/docs/stable/integrations/messengers/mattermost/" class="integration-pill"><img src="/icon-mattermost.png" alt="">Mattermost</a>
+      <a href="/docs/stable/integrations/messengers/mattermost/" class="integration-pill"><img src="/icon-mattermost.svg" alt="">Mattermost</a>
       <a href="/docs/stable/integrations/messengers/telegram/" class="integration-pill"><img src="/icon-telegram.png" alt="">Telegram</a>
     </div>
   </div>
