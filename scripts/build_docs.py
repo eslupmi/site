@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import html, json, posixpath, re, shutil, subprocess
 from pathlib import Path
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "publish" / "docs"
@@ -36,6 +37,24 @@ def title_of(text, fallback):
         return fallback
     t = html.unescape(re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", m.group(1)))
     return t.strip() or fallback
+
+def split_meta(text):
+    if text.startswith("---\n"):
+        end = text.find("\n---\n", 4)
+        if end != -1:
+            return yaml.safe_load(text[4:end]) or {}, text[end + 5:]
+    return {}, text
+
+def redir(text):
+    m = re.fullmatch(r'\s*<script>\s*location\.replace\((["\'])(.+?)\1\)\s*;?\s*</script>\s*', text)
+    return m.group(2) if m else None
+
+def abs_redirect(target, page):
+    if "://" in target or target.startswith("/"):
+        return target
+    base = page if page.endswith("/") else page + "/"
+    path = posixpath.normpath(posixpath.join(base, target))
+    return path + "/" if target.endswith("/") and not path.endswith("/") else path
 
 def rewrite(href, src, name):
     if "://" in href or href.startswith(("#", "mailto:", "/")):
@@ -117,14 +136,14 @@ def load_chrome():
 
 def render(name, dest, chrome):
     import markdown
-    import yaml
     header, footer, modal, gtag = chrome
     cfg = yaml.safe_load((SRC / "docs" / "mkdocs.yml").read_text())
     content = SRC / "docs" / (cfg.get("docs_dir") or "content")
     site_name = cfg.get("site_name") or "Docs"
     pages = sorted(p.relative_to(content).as_posix() for p in content.rglob("*.md"))
-    texts = {rel: (content / rel).read_text() for rel in pages}
-    titles = {rel: title_of(texts[rel], Path(rel).stem) for rel in pages}
+    parsed = {rel: split_meta((content / rel).read_text()) for rel in pages}
+    texts = {rel: parsed[rel][1] for rel in pages}
+    titles = {rel: title_of(texts[rel], str(parsed[rel][0].get("title") or Path(rel).stem)) for rel in pages}
     md = markdown.Markdown(extensions=[
         "admonition", "pymdownx.details", "pymdownx.highlight", "pymdownx.superfences",
         "pymdownx.tabbed", "tables", "toc",
@@ -143,12 +162,25 @@ def render(name, dest, chrome):
     shutil.copy(JS, dest / "js" / "versions.js")
     index = []
     for rel in pages:
+        url = page_url(name, rel)
+        out = dest / "index.html" if page_path(rel) == "" else dest / page_path(rel) / "index.html"
+        hop = redir(texts[rel])
+        if hop:
+            target = html.escape(abs_redirect(hop, url))
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(
+                "<!DOCTYPE html>\n"
+                f'<meta http-equiv="refresh" content="0;url={target}">\n'
+                f'<link rel="canonical" href="https://impulse.bot{target}">\n'
+                f'<a href="{target}">Documentation</a>\n'
+            )
+            continue
         md.reset()
         body = fix_hrefs(md.convert(fix_images(texts[rel], rel, name)), rel, name)
         toc = md.toc if "<li>" in md.toc else ""
-        url = page_url(name, rel)
         nav = nav_html(cfg.get("nav"), titles, rel, name)
-        index.append({"t": titles[rel], "u": url, "s": plain(body)})
+        if not (parsed[rel][0].get("search") or {}).get("exclude"):
+            index.append({"t": titles[rel], "u": url, "s": plain(body)})
         toc_html = f'<aside class="docs-toc">{toc}</aside>' if toc else ""
         page = f"""<!DOCTYPE html>
 <html lang="en">
@@ -193,7 +225,6 @@ def render(name, dest, chrome):
 </body>
 </html>
 """
-        out = dest / "index.html" if page_path(rel) == "" else dest / page_path(rel) / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(page)
     (dest / "search.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")))

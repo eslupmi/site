@@ -39,7 +39,7 @@ function updateCurrentNav() {
     const path = location.pathname;
     document.querySelectorAll('#mobile-menu .nav-link').forEach(a => {
         const href = a.getAttribute('href');
-        const on = href === '/' ? path === '/' : path.startsWith(href);
+        const on = href === '/' ? path === '/' : path.startsWith(href.startsWith('/docs/') ? '/docs/' : href);
         if (on) a.setAttribute('aria-current', 'page');
         else a.removeAttribute('aria-current');
     });
