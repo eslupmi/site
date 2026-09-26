@@ -9,6 +9,7 @@ body:has(.docs-page) {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   overflow-x: hidden;
 }
@@ -216,7 +217,7 @@ body:has(.docs-page) > #page {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.docs-toc a:hover { color: var(--accent); }
+.docs-toc a:hover { color: #0478b0; }
 .docs-toc-tip {
   position: fixed;
   z-index: 30;
@@ -231,7 +232,7 @@ body:has(.docs-page) > #page {
 article h1, article h2, article h3, article h4, article h5, article h6 { line-height: 1.3; }
 article h1 { margin: 0 0 .6em; }
 article h2, article h3, article h4, article h5, article h6 { font-size: 1em; font-weight: 700; margin: 1.6em 0 .5em; }
-article a { color: var(--accent); text-decoration: none; }
+article a { color: #0478b0; text-decoration: none; }
 article a:hover { text-decoration: underline; }
 article p { margin: 0 0 .8em; }
 article ul, article ol { margin: 0 0 .8em; padding-left: 1.3em; }
@@ -282,6 +283,7 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
 .admonition-title, article details > summary { font-weight: 700; margin: 0 0 6px; cursor: pointer; }
 .admonition-title:empty { display: none; }
 .admonition.info { border-color: var(--accent); }
+.admonition p { margin: 0; }
 .admonition.warning, details.warning { border-color: #e6a700; background: #fff8e8; }
 .admonition.danger { border-color: #e5534b; background: #fff1f0; }
 .admonition.note, details.note { border-color: #7c8da3; }
@@ -308,11 +310,8 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
   display: block;
 }
 @media (max-width: 1100px) {
-  body:has(.docs-page) { display: block; height: auto; overflow-x: hidden; overflow-y: auto; }
-  body:has(.docs-page) > #page { display: block; }
-  .docs-page { display: block; overflow: visible; }
-  .docs-layout, .docs-layout.no-toc { grid-template-columns: 220px minmax(0, 1fr); min-height: calc(100vh - 80px); grid-template-rows: none; }
-  .docs-nav { height: auto; top: 71px; max-height: calc(100vh - 126px); }
+  .docs-layout, .docs-layout.no-toc { grid-template-columns: 220px minmax(0, 1fr); min-height: 0; grid-template-rows: none; }
+  .docs-nav { height: auto; top: 71px; max-height: calc(100dvh - 126px); }
   .docs-main { overflow: visible; }
   .docs-side { display: none; }
 }
@@ -320,7 +319,7 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
   body:has(.docs-page) {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
   body:has(.docs-page) > #page {
     display: flex;
@@ -380,7 +379,7 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
   --text: #e8eaed;
   --line: #3a4048;
   --sidebar: #25282e;
-  --code: #eaeaea;
+  --code: #f4f4f4;
   & .docs-nav a:hover, & .docs-version-panel a:hover, & .nav-section-title:hover { border-color: #e8eaed; }
   & .docs-nav a.active, & .docs-version-panel a.active { background: #e8eaed; color: #353535; }
   & .docs-version, & .docs-search input { background: #1c1e22; }
@@ -393,11 +392,14 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
   & .docs-search-list a:hover, & .docs-search-list a.active { background: #e9eef1; }
   & .docs-search-list span, & .docs-search-empty { color: #5c6570; }
   & .docs-search-list mark { background: #ffe08a; color: #353535; }
+  & .docs-toc a:hover { color: #5ec8f5; }
   & .docs-toc-tip { background: #2a2d33; }
   & article :not(pre) > code { background: #2a3038; }
   & .highlight, & .codehilite { border-color: #d5dbe1; color: #353535; }
   & .highlight .c, & .highlight .ch, & .highlight .cm, & .highlight .c1, & .highlight .cs { color: #5c6570; }
   & .highlight .filename, & .codehilite .filename { color: #5c6570; }
+  & article a { color: #5ec8f5; }
+  & a.headerlink, & a.headerlink:hover { color: #6e7680; }
   & .admonition, & article details { background: #25282e; }
   & .admonition.warning, & details.warning { background: #3a2e14; }
   & .admonition.danger { background: #3a1c1a; }

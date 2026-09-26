@@ -30,12 +30,11 @@
 }
 
 a.brand-color {
-    color: var(--color-accent);
+    color: #0478b0;
     text-decoration: none;
 }
 
 a.brand-color:hover {
-    opacity: 0.8;
     text-decoration: underline;
 }
 
@@ -818,7 +817,7 @@ body > .container { width: 100%; margin: 0; padding: 0; }
 }
 
 .modal-body a {
-    color: var(--color-accent);
+    color: #0478b0;
     text-decoration: none;
 }
 
@@ -1163,4 +1162,6 @@ body > .container { width: 100%; margin: 0; padding: 0; }
         color: #e8eaed;
     }
     & .content .quick-start p code { background: #2a2d33; }
+    & a.brand-color,
+    & .modal-body a { color: #5ec8f5; }
 }
