@@ -261,10 +261,12 @@ async function loadPage(url, push) {
         document.querySelector('.docs-nav').scrollTop = keptNav.top;
         if (keptNav.link) keptNav.link.scrollIntoView({ block: 'nearest' });
     }
-    if (!document.querySelector('.docs-page')) return;
-    await ensureDocsJs();
-    if (seq !== navSeq) return;
-    if (window.initDocs) window.initDocs();
+    if (document.querySelector('.docs-page')) {
+        await ensureDocsJs();
+        if (seq !== navSeq) return;
+        if (window.initDocs) window.initDocs();
+    }
+    updateDocsToggles();
 }
 
 window.navigate = function (href) {
