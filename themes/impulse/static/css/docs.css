@@ -187,14 +187,14 @@ body:has(.docs-page) > #page {
 .nav-section[open] > .nav-section-title::before { transform: rotate(90deg); }
 .nav-root > .nav-section-title {
   margin-top: 14px;
-  color: var(--accent);
+  color: #0478b0;
   font-weight: 700;
   text-transform: uppercase;
   cursor: default;
 }
 .nav-root:first-child > .nav-section-title { margin-top: 0; }
 .nav-root > .nav-section-title::before { display: none; }
-.nav-root > .nav-section-title:hover { border-color: transparent; color: var(--accent); }
+.nav-root > .nav-section-title:hover { border-color: transparent; color: #0478b0; }
 .docs-main { overflow: visible; padding: 49px 40px 64px; }
 .docs-main [id] { scroll-margin-top: 87px; }
 .docs-toc {
@@ -392,6 +392,8 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
   & .docs-search-list a:hover, & .docs-search-list a.active { background: #e9eef1; }
   & .docs-search-list span, & .docs-search-empty { color: #5c6570; }
   & .docs-search-list mark { background: #ffe08a; color: #353535; }
+  & .nav-root > .nav-section-title,
+  & .nav-root > .nav-section-title:hover { color: #5ec8f5; }
   & .docs-toc a:hover { color: #5ec8f5; }
   & .docs-toc-tip { background: #2a2d33; }
   & article :not(pre) > code { background: #2a3038; }
