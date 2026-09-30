@@ -164,7 +164,7 @@ description: Open-source, self-hosted ChatOps incident management platform for S
       <p><a href="/docs/stable/config_file/#uifilters" class="brand-color">Filter</a> incidents with Alertmanager-like filters</p>
       <p>Sort incidents exactly the way you want with multi-column <a href="/docs/stable/config_file/#uisorting" class="brand-color">sorting</a></p>
       <p>Highlight the information that matters to you with <a href="/docs/stable/config_file/#uicolors" class="brand-color">custom colors</a></p>
-      <p class="feature-group-card-wide">Set schedules without editing the config using <a href="/docs/stable/config_file/#ui-chains" class="brand-color">ui chains</a><img src="/calendar.png" alt="ui chains calendar"></p>
+      <p class="feature-group-card-wide">Set schedules without editing the config using <a href="/docs/stable/config_file/#ui-chains" class="brand-color">ui escalation chains</a><img src="/calendar.png" alt="ui escalation chains calendar"></p>
     </div>
   </article>
 </div>
