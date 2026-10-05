@@ -156,6 +156,37 @@
   });
   document.addEventListener("scroll", hideTip, true);
 
+  function updateToc() {
+    var toc = document.querySelector(".docs-toc");
+    if (!toc) return;
+    var links = [].slice.call(toc.querySelectorAll("a[href^='#']"));
+    var header = document.querySelector(".header");
+    var line = (header ? header.offsetHeight : 71) + 32;
+    var current = null;
+    links.some(function (a) {
+      var el = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+      if (!el || !el.getClientRects().length) return;
+      if (el.getBoundingClientRect().top > line) return true;
+      current = a;
+    });
+    if (!current) current = links.find(function (a) {
+      var el = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+      return el && el.getClientRects().length;
+    }) || null;
+    if (scrollY > 0 && scrollY + innerHeight >= document.documentElement.scrollHeight - 2) {
+      for (var i = links.length - 1; i >= 0; i--) {
+        var last = document.getElementById(decodeURIComponent(links[i].hash.slice(1)));
+        if (last && last.getClientRects().length) { current = links[i]; break; }
+      }
+    }
+    links.forEach(function (a) { a.classList.toggle("active", a === current); });
+    if (!current) return;
+    var box = toc.getBoundingClientRect();
+    var r = current.getBoundingClientRect();
+    if (box.height && (r.top < box.top || r.bottom > box.bottom))
+      toc.scrollTop += r.top - box.top - (box.height - r.height) / 2;
+  }
+
   function fitSides() {
     var boxes = document.querySelectorAll(".docs-nav, .docs-side");
     if (!boxes.length) return;
@@ -185,9 +216,14 @@
       el.style.height = h + "px";
     });
   }
-  document.addEventListener("scroll", fitSides, { capture: true, passive: true });
-  window.addEventListener("resize", fitSides);
-  fitSides();
+  function onView() { fitSides(); updateToc(); }
+  document.addEventListener("scroll", function (e) {
+    if (e.target.closest && e.target.closest(".docs-toc")) return;
+    onView();
+  }, { capture: true, passive: true });
+  window.addEventListener("resize", onView);
+  window.addEventListener("load", onView);
+  onView();
 
   function initNav() {
     var nav = document.querySelector(".docs-nav");
@@ -223,7 +259,7 @@
     initVersion();
     initSearch();
     initNav();
-    fitSides();
+    onView();
   };
   if (document.querySelector(".docs-page")) window.initDocs();
 })();

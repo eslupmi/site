@@ -291,6 +291,7 @@ document.addEventListener('click', function (e) {
     const targetSection = document.querySelector(link.getAttribute('href'));
     if (!targetSection) return;
     e.preventDefault();
+    history.pushState(null, '', link.getAttribute('href'));
     if (document.querySelector('.docs-main')?.contains(targetSection)) {
         targetSection.scrollIntoView({ block: 'start' });
         closeMobileMenu();

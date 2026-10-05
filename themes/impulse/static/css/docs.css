@@ -217,7 +217,8 @@ body:has(.docs-page) > #page {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.docs-toc a:hover { color: #0478b0; }
+.docs-toc a:hover, .docs-toc a.active { color: #0478b0; }
+.docs-toc a.active { background: rgba(4, 120, 176, .12); }
 .docs-toc-tip {
   position: fixed;
   z-index: 30;
@@ -394,7 +395,8 @@ a.headerlink, a.headerlink:hover { margin-left: .4em; color: #b0b8c0; text-decor
   & .docs-search-list mark { background: #ffe08a; color: #353535; }
   & .nav-root > .nav-section-title,
   & .nav-root > .nav-section-title:hover { color: #5ec8f5; }
-  & .docs-toc a:hover { color: #5ec8f5; }
+  & .docs-toc a:hover, & .docs-toc a.active { color: #5ec8f5; }
+  & .docs-toc a.active { background: rgba(94, 200, 245, .16); }
   & .docs-toc-tip { background: #2a2d33; }
   & article :not(pre) > code { background: #2a3038; }
   & .highlight, & .codehilite { border-color: #d5dbe1; color: #353535; }
