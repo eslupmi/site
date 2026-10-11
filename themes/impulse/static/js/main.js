@@ -140,9 +140,13 @@ let navSeq = 0;
 
 function refreshTarget(doc) {
     const meta = doc.querySelector('meta[http-equiv="refresh" i]');
-    if (!meta) return;
-    const m = (meta.getAttribute('content') || '').match(/url=([^;]+)/i);
-    return m && m[1].trim();
+    if (meta) {
+        const m = (meta.getAttribute('content') || '').match(/url=([^;]+)/i);
+        if (m) return m[1].trim();
+    }
+    const code = doc.querySelector('script');
+    const m = code && (code.textContent || '').match(/location\.replace\((["'])(.+?)\1/);
+    return m && m[2];
 }
 
 function syncCanonical(doc) {
@@ -235,6 +239,7 @@ async function loadPage(url, push) {
     const hop = refreshTarget(doc);
     if (hop && !doc.getElementById('page')) {
         const nextUrl = new URL(hop, res.url);
+        nextUrl.search = url.search;
         nextUrl.hash = url.hash;
         return loadPage(nextUrl, push);
     }

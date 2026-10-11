@@ -240,13 +240,39 @@ def main():
     else:
         sh(["git", "clone", REPO, str(SRC)])
     found = tags()
+    rels = []
+    seen = set()
+    for tag in found:
+        major, minor, _ = tag[1:].split(".")
+        name = f"v{major}.{minor}"
+        if name not in seen:
+            seen.add(name)
+            rels.append((name, tag))
     chrome = load_chrome()
     OUT.mkdir(parents=True, exist_ok=True)
     build("stable", found[0], chrome)
     build("latest", "origin/develop", chrome)
+    for name, tag in rels:
+        build(name, tag, chrome)
+    names = ["stable", "latest", *[name for name, _ in rels]]
+    for path in OUT.iterdir():
+        if path.is_dir() and path.name not in names:
+            shutil.rmtree(path)
     for tag in found:
-        build(tag, tag, chrome)
-    names = ["stable", "latest", *found]
+        major, minor, _ = tag[1:].split(".")
+        name = f"v{major}.{minor}"
+        src = OUT / name
+        for page in src.rglob("index.html"):
+            rel = page.parent.relative_to(src).as_posix()
+            target = f"/docs/{name}/" if rel == "." else f"/docs/{name}/{rel}/"
+            out = OUT / tag / page.relative_to(src)
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(
+                "<!DOCTYPE html>\n"
+                f'<script>location.replace("{target}" + location.search + location.hash)</script>\n'
+                f'<link rel="canonical" href="https://impulse.bot{target}">\n'
+                f'<a href="{target}">Documentation</a>\n'
+            )
     (OUT / "versions.json").write_text(json.dumps({"default": "stable", "versions": names}) + "\n")
     (OUT / "index.html").write_text(
         "<!DOCTYPE html>\n"
