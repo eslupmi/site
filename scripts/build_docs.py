@@ -22,6 +22,21 @@ def tags():
     found.sort(key=lambda t: tuple(map(int, t[1:].split("."))), reverse=True)
     return found
 
+def release_ref():
+    found = []
+    for ref in subprocess.check_output(
+        ["git", "for-each-ref", "--format=%(refname:short)", "refs/remotes/origin/release"],
+        cwd=SRC, text=True,
+    ).split():
+        ver = ref.removeprefix("origin/release/")
+        if re.fullmatch(r"v\d+\.\d+\.\d+", ver):
+            found.append((ver, ref))
+    found.sort(key=lambda item: tuple(map(int, item[0][1:].split("."))), reverse=True)
+    if not found:
+        return None
+    major, minor, _ = found[0][0][1:].split(".")
+    return f"v{major}.{minor}-rc", found[0][1]
+
 def page_path(md):
     p = Path(md)
     if p.name == "index.md":
@@ -248,13 +263,16 @@ def main():
         if name not in seen:
             seen.add(name)
             rels.append((name, tag))
+    release = release_ref()
     chrome = load_chrome()
     OUT.mkdir(parents=True, exist_ok=True)
-    build("stable", found[0], chrome)
     build("latest", "origin/develop", chrome)
+    if release:
+        build(*release, chrome)
+    build("stable", found[0], chrome)
     for name, tag in rels:
         build(name, tag, chrome)
-    names = ["stable", "latest", *[name for name, _ in rels]]
+    names = ["latest", *([release[0]] if release else []), "stable", *[name for name, _ in rels]]
     for path in OUT.iterdir():
         if path.is_dir() and path.name not in names:
             shutil.rmtree(path)
